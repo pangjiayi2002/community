@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>管理员界面</title>
+    <link rel="stylesheet" href="../css/manageHomePagecss.css">
+    <script src="../js/manageHomePagejs.js"></script>
 </head>
 <body>
 <div id="topdiv">
@@ -10,18 +12,19 @@
     <button id="topdivbutton">退出</button>
 </div>
 <div id="centerdiv">
-    <button id="centerdivbutton1">食堂管理员账号管理</button>
-    <button id="centerdivbutton2">食堂信息管理</button>
-    <button id="centerdivbutton3">评价信息管理</button>
+    <button id="centerdivbutton1" onclick="onclickbutton(1)">食堂管理员账号管理</button>
+    <button id="centerdivbutton2" onclick="onclickbutton(2)">食堂信息管理</button>
+    <button id="centerdivbutton3" onclick="onclickbutton(3)">评价信息管理</button>
 </div>
 <div id="center1div">
-    <label class="centerdivlab">食堂管理员账号列表</label>
+    <label class="centerdivlab">食堂管理员账号列表</label><br>
     <button class="centerdivbutton">添加食堂管理员</button>
     <div id="center1divtop">
         <label id="center1divtoplab1">id</label>
         <label id="center1divtoplab2">username</label>
         <label id="center1divtoplab3">password</label>
         <label id="center1divtoplab4">restaurant</label>
+        <label id="center1divtoplab5">操作</label>
     </div>
     <div class="center1divc">
         <label class="center1divclab1">${id}</label>

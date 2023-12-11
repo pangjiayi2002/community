@@ -1,0 +1,173 @@
+#topdiv{
+    position: absolute;
+    width: 1310px;
+    height: 60px;
+    margin: -8px;
+    padding: 2px;
+    background-color: #3498db;
+}
+#topdivlab{
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 10px;
+    font-size: 22px;
+    color: #fff;
+}
+#topdivbutton{
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 1200px;
+    color: #FFFFFF;
+    background-color: black;
+    font-size: 20px;
+}
+#centerdiv{
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    margin-top: 55px;
+    margin-left: -8px;
+}
+#centerdivbutton1{
+    width: 200px;
+    height: 50px;
+    background-color: #000;
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+#centerdivbutton2{
+    width: 200px;
+    height: 50px;
+    background-color: #333;
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+#centerdivbutton3{
+    width: 200px;
+    height: 50px;
+    background-color: #333;
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+#center1div{
+    position: absolute;
+    width: 1000px;
+    height: 400px;
+    margin-top: 70px;
+    margin-left: 250px;
+}
+.centerdivlab{
+    font-size: 25px;
+}
+.centerdivbutton{
+    width: 100px;
+    height: 30px;
+    font-size: 12px;
+    margin-top: 30px;
+}
+#center1divtop{
+    width: 1000px;
+    height: 50px;
+    margin-top: 10px;
+}
+#center1divtoplab1{
+    font-size: 20px;
+    margin-left: 50px;
+}
+#center1divtoplab2{
+    font-size: 20px;
+    margin-left: 120px;
+}
+#center1divtoplab3{
+    font-size: 20px;
+    margin-left: 120px;
+}
+#center1divtoplab4{
+    font-size: 20px;
+    margin-left: 120px;
+}
+#center1divtoplab5{
+    font-size: 20px;
+    margin-left: 120px;
+}
+.center1divc{
+    width: 1000px;
+    height: 40px;
+    border: 1px solid lightgray;
+    padding-top: 5px;
+    border-right: none;
+    border-left: none;
+}
+.center1divclab1{
+    font-size: 18px;
+    margin-left: 40px;
+}
+.center1divclab2{
+    font-size: 18px;
+    margin-left: 110px;
+}
+.center1divclab3{
+    font-size: 18px;
+    margin-left: 108px;
+}
+.center1divclab4{
+    font-size: 18px;
+    margin-left: 105px;
+}
+.center1divcbutton1{
+    width: 70px;
+    height: 30px;
+    color: #FFFFFF;
+    background-color: dodgerblue;
+    border: none;
+    margin-left: 55px;
+}
+.center1divcbutton2{
+    width: 70px;
+    height: 30px;
+    color: #FFFFFF;
+    background-color: red;
+    border: none;
+    margin-left: 1px;
+}
+#center2div{
+    display: none;
+}
+#center3div{
+    display: none;
+}
+#center1_1div{
+    display: none;
+}
+#center1_2div{
+    display: none;
+}
+#center1_3div{
+    display: none;
+}
+#center2_1div{
+    display: none;
+}
+#center2_2div{
+    display: none;
+}
+#center2_3div{
+    display: none;
+}
+#center3_1div{
+    display: none;
+}
+#center3_2div{
+    display: none;
+}
+#center3_3div{
+    display: none;
+}
