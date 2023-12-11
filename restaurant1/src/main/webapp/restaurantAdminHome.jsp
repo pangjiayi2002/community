@@ -28,7 +28,7 @@
     <img src="./images/logo.jpg" alt="none" width="90%">
 </div>
 <div id="buttons">
-    <input type="submit" value="食堂信息维护" style="background-color: #3a8dc1;width:150px;height:100px;font-size: 20px;border: none" onclick="window.location.href='restaurantInformation.jsp'">
+    <input type="submit" value="食堂信息维护" style="background-color: #3a8dc1;width:150px;height:100px;font-size: 20px;border: none" onclick="window.location.href='restaurantList.jsp'">
     <input type="submit" value="菜品维护" style="background-color: #8bc93a;width:150px;height:100px;font-size: 20px;border: none" onclick="window.location.href=''">
     <input type="submit" value="食堂评价处理" style="background-color: #faca0d;width:150px;height:100px;font-size: 20px;border: none" onclick="window.location.href=''">
 <%--    <input type="submit" value="活动公告" style="background-color: #faca0d;width:150px;height:100px;font-size: 20px;border: none" onclick="window.location.href=''">--%>

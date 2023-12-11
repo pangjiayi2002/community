@@ -16,8 +16,11 @@ public interface restaurantAdminDao {
      * @throws Exception
      */
     restaurantAdmin getLoginRestaurantAdmin(Connection connection, String username) throws Exception;
+    RestaurantInfo getInfoById(Connection connection, String id) throws Exception;
     //获取食堂信息
     List<RestaurantInfo> getAll(Connection connection)throws Exception;
     //修改食堂信息
     int modify(Connection connection, RestaurantInfo restaurantInfo) throws Exception;
+
+
 }

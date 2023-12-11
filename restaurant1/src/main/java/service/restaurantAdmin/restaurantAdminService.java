@@ -14,6 +14,7 @@ public interface restaurantAdminService {
      * @return
      */
     public restaurantAdmin login(String username, String password);
+    public RestaurantInfo getInfoById(String id);
     List<RestaurantInfo> getAll()throws Exception;
     public boolean modify(RestaurantInfo restaurantInfo);
 }

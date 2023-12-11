@@ -44,6 +44,29 @@ public class restaurantAdminDaoImpl implements restaurantAdminDao{
     }
 
     @Override
+    public RestaurantInfo getInfoById(Connection connection, String id) throws Exception {
+        RestaurantInfo info = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        if (null != connection) {
+            String sql = "select * from restaurant.restaurantInfo where id=?";
+            Object[] params = {id};
+            rs = BaseDao.execute(connection, pstm, rs, sql, params);
+            if (rs.next()) {
+                info = new RestaurantInfo();
+                info.setId(rs.getInt("id"));
+                info.setName(rs.getString("name"));
+                info.setIntroduction(rs.getString("introduction"));
+                info.setCover(rs.getString("cover"));
+                info.setLocation(rs.getString("location"));
+                info.setTime(rs.getString("time"));
+            }
+            BaseDao.closeResource(null, pstm, rs);
+        }
+        return info;
+    }
+
+    @Override
     public List<RestaurantInfo> getAll(Connection connection) throws Exception {
         PreparedStatement pstm=null;
         ResultSet rs=null;
@@ -69,7 +92,15 @@ public class restaurantAdminDaoImpl implements restaurantAdminDao{
     }
 
     @Override
-    public int modify(Connection connection, RestaurantInfo restaurantInfo) throws Exception {
-        return 0;
+    public int modify(Connection connection, RestaurantInfo info) throws Exception {
+        int flag = 0;
+        PreparedStatement pstm = null;
+        if (null != connection) {
+            String sql = "update restaurant.restaurantInfo set name=?,introduction=?,cover=?,location=?,time=? where id = ? ";
+            Object[] params = {info.getName(),info.getIntroduction(),info.getCover(),info.getLocation(),info.getTime(),info.getId()};
+            flag = BaseDao.execute(connection, pstm, sql, params);
+            BaseDao.closeResource(null, pstm, null);
+        }
+        return flag;
     }
 }

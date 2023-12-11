@@ -67,4 +67,16 @@ public class RestaurantInfo {
         this.location = location;
         this.time = time;
     }
+
+    @Override
+    public String toString() {
+        return "RestaurantInfo{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", introduction='" + introduction + '\'' +
+                ", cover='" + cover + '\'' +
+                ", location='" + location + '\'' +
+                ", time='" + time + '\'' +
+                '}';
+    }
 }
