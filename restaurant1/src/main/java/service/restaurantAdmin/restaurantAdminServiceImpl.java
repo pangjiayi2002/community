@@ -43,6 +43,23 @@ public class restaurantAdminServiceImpl implements restaurantAdminService{
     }
 
     @Override
+    public RestaurantInfo getInfoById(String id) {
+        RestaurantInfo info = null;
+        Connection connection = null;
+        try {
+            connection = BaseDao.getConnection();
+            info = resAdminDao.getInfoById(connection,id);
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+            info = null;
+        } finally {
+            BaseDao.closeResource(connection, null, null);
+        }
+        return info;
+    }
+
+    @Override
     public List<RestaurantInfo> getAll() throws Exception {
         Connection connection = null;
         List<RestaurantInfo> NoticeList = null;
