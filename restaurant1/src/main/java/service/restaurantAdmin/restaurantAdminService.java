@@ -1,6 +1,9 @@
 package service.restaurantAdmin;
 
+import Pojo.RestaurantInfo;
 import Pojo.restaurantAdmin;
+
+import java.util.List;
 
 public interface restaurantAdminService {
     /**
@@ -11,4 +14,6 @@ public interface restaurantAdminService {
      * @return
      */
     public restaurantAdmin login(String username, String password);
+    List<RestaurantInfo> getAll()throws Exception;
+    public boolean modify(RestaurantInfo restaurantInfo);
 }
