@@ -53,7 +53,7 @@ public class LoginServlet extends HttpServlet {
             if(null!=user){
                 //登陆成功
                 //页面重定向
-                response.sendRedirect("index.jsp");
+                response.sendRedirect("userHome.jsp");
             }else{
                 //页面转发，带着提示信息转发
                 request.setAttribute("error","用户名或密码不正确");
