@@ -9,7 +9,10 @@
 <body>
 <div id="topdiv">
     <label id="topdivlab">管理员后台</label>
-    <button id="topdivbutton">退出</button>
+    <form action="LogoutServlet" method="post">
+        <button id="topdivbutton" type="submit">退出</button>
+    </form>
+
 </div>
 <div id="centerdiv">
     <button id="centerdivbutton1" onclick="onclickbutton(1)">食堂管理员账号管理</button>
@@ -31,8 +34,27 @@
         <label class="center1divclab2">${username}</label>
         <label class="center1divclab3">${password}</label>
         <label class="center1divclab4">${restaurant}</label>
-        <button class="center1divcbutton1">编辑</button>
-        <button class="center1divcbutton2">删除</button>
+        <button class="center1divcbutton1" onclick="">编辑</button>
+        <button class="center1divcbutton2" onclick="">删除</button>
+    </div>
+    <div class="center1_2div">
+        <button class="center1_2divbutton1" onclick="">X</button><br>
+        <label class="center1_2divlab1">修改食堂管理员信息</label><br><br>
+        <label class="center1_2divlab2">食堂管理员id:</label>
+        <input type="number" value="" class="center1_2divinput1"><br><br>
+        <label class="center1_2divlab3">食堂管理员用户名:</label>
+        <input type="text" value="" class="center1_2divinput2"><br><br>
+        <label class="center1_2divlab4">食堂管理员密码:</label>
+        <input type="text" value="" class="center1_2divinput3"><br><br>
+        <label class="center1_2divlab5">食堂管理员所属餐厅:</label>
+        <input type="text" value="" class="center1_2divinput4"><br><br><br>
+        <button class="center1_2divbutton2" onclick="">确认修改</button>
+    </div>
+    <div class="center1_3div">
+        <button class="center1_3divbutton1">X</button><br>
+        <label class="center1_3divlab1">删除食堂管理员信息</label><br><br><br>
+        <label class="center1_3divlab2">此操作不可逆，是否确认删除该食堂管理员？</label><br><br><br>
+        <button class="center1_3divbutton2">确认删除</button>
     </div>
 </div>
 <div id="center2div">
@@ -52,6 +74,25 @@
         <label class="center2divclab4">${time}</label>
         <button class="center2divcbutton1">编辑</button>
         <button class="center2divcbutton2">删除</button>
+    </div>
+    <div class="center2_2div">
+        <button class="center2_2divbutton1">X</button><br>
+        <label class="center2_2divlab1">修改食堂信息</label><br><br>
+        <label class="center2_2divlab2">食堂id:</label>
+        <input type="number" value="" class="center2_2divinput1"><br><br>
+        <label class="center2_2divlab3">食堂名:</label>
+        <input type="text" value="" class="center2_2divinput2"><br><br>
+        <label class="center2_2divlab4">食堂地点:</label>
+        <input type="text" value="" class="center2_2divinput3"><br><br>
+        <label class="center2_2divlab5">食堂经营时间:</label>
+        <input type="text" value="" class="center2_2divinput4"><br><br><br>
+        <button class="center2_2divbutton2">确认修改</button>
+    </div>
+    <div class="center2_3div">
+        <button class="center2_3divbutton1">X</button><br>
+        <label class="center2_3divlab1">删除食堂信息</label><br><br><br>
+        <label class="center2_3divlab2">此操作不可逆，是否确认删除该食堂？</label><br><br><br>
+        <button class="center2_3divbutton2">确认删除</button>
     </div>
 </div>
 <div id="center3div">
@@ -77,110 +118,57 @@
         <button class="center3divcbutton1">编辑</button>
         <button class="center3divcbutton2">删除</button>
     </div>
+    <div class="center3_2div">
+        <button class="center3_2divbutton1">X</button><br>
+        <label class="center3_2divlab1">修改评价信息</label><br><br>
+        <label class="center3_2divlab2">评价id:</label>
+        <input type="number" value="" class="center3_2divinput1"><br><br>
+        <label class="center3_2divlab3">评价标题:</label>
+        <input type="text" value="" class="center3_2divinput2"><br><br>
+        <label class="center3_2divlab4">评价内容:</label>
+        <input type="text" value="" class="center3_2divinput3"><br><br>
+        <label class="center3_2divlab5">发送者:</label>
+        <input type="text" value="" class="center3_2divinput4"><br><br>
+        <label class="center3_2divlab6">评价食堂:</label>
+        <input type="text" value="" class="center3_2divinput5"><br><br>
+        <label class="center3_2divlab7">评价食物:</label>
+        <input type="text" value="" class="center3_2divinput6"><br><br>
+        <label class="center3_2divlab8">接收者:</label>
+        <input type="text" value="" class="center3_2divinput7"><br><br>
+        <button class="center3_2divbutton2">确认修改</button>
+    </div>
+    <div class="center3_3div">
+        <button class="center3_3divbutton1">X</button><br>
+        <label class="center3_3divlab1">删除评价信息</label><br><br><br>
+        <label class="center3_3divlab2">此操作不可逆，是否确认删除该食堂？</label><br><br><br>
+        <button class="center3_3divbutton2">确认删除</button>
+    </div>
 </div>
 <div id="center1_1div">
     <button id="center1_1divbutton1">X</button><br>
-    <label id="center1_1divlab1">添加食堂管理员</label><br>
+    <label id="center1_1divlab1">添加食堂管理员</label><br><br>
     <label id="center1_1divlab2">食堂管理员id:</label>
-    <input type="number"><br>
+    <input type="number" id="center1_1divinput1"><br><br>
     <label id="center1_1divlab3">食堂管理员用户名:</label>
-    <input type="text"><br>
+    <input type="text" id="center1_1divinput2"><br><br>
     <label id="center1_1divlab4">食堂管理员密码:</label>
-    <input type="text"><br>
+    <input type="text" id="center1_1divinput3"><br><br>
     <label id="center1_1divlab5">食堂管理员所属餐厅:</label>
-    <input type="text"><br>
+    <input type="text" id="center1_1divinput4"><br><br><br>
     <button id="center1_1divbutton2">确认添加</button>
-</div>
-<div id="center1_2div">
-    <button id="center1_2divbutton1">X</button><br>
-    <label id="center1_2divlab1">修改食堂管理员信息</label><br>
-    <label id="center1_2divlab2">食堂管理员id:</label>
-    <input type="number" value=""><br>
-    <label id="center1_2divlab3">食堂管理员用户名:</label>
-    <input type="text" value=""><br>
-    <label id="center1_2divlab4">食堂管理员密码:</label>
-    <input type="text" value=""><br>
-    <label id="center1_2divlab5">食堂管理员所属餐厅:</label>
-    <input type="text" value=""><br>
-    <button id="center1_2divbutton2">确认修改</button>
-</div>
-<div id="center1_3div">
-    <button id="center1_3divbutton1">X</button><br>
-    <label id="center1_3divlab1">删除食堂管理员信息</label><br>
-    <label id="center1_3divlab2">此操作不可逆，是否确认删除该食堂管理员？</label>
-    <button id="center1_3divbutton2">确认删除</button>
 </div>
 <div id="center2_1div">
     <button id="center2_1divbutton1">X</button><br>
-    <label id="center2_1divlab1">添加食堂信息</label><br>
+    <label id="center2_1divlab1">添加食堂信息</label><br><br>
     <label id="center2_1divlab2">食堂id:</label>
-    <input type="number"><br>
+    <input type="number" id="center2_1divinput1"><br><br>
     <label id="center2_1divlab3">食堂名:</label>
-    <input type="text"><br>
+    <input type="text" id="center2_1divinput2"><br><br>
     <label id="center2_1divlab4">食堂地点:</label>
-    <input type="text"><br>
+    <input type="text" id="center2_1divinput3"><br><br>
     <label id="center2_1divlab5">食堂经营时间:</label>
-    <input type="text"><br>
+    <input type="text" id="center2_1divinput4"><br><br><br>
     <button id="center2_1divbutton2">确认添加</button>
 </div>
-<div id="center2_2div">
-    <button id="center2_2divbutton1">X</button><br>
-    <label id="center2_2divlab1">修改食堂信息</label><br>
-    <label id="center2_2divlab2">食堂id:</label>
-    <input type="number" value=""><br>
-    <label id="center2_2divlab3">食堂名:</label>
-    <input type="text" value=""><br>
-    <label id="center2_2divlab4">食堂地点:</label>
-    <input type="text" value=""><br>
-    <label id="center2_2divlab5">食堂经营时间:</label>
-    <input type="text" value=""><br>
-    <button id="center2_2divbutton2">确认修改</button>
-</div>
-<div id="center2_3div">
-    <button id="center2_3divbutton1">X</button><br>
-    <label id="center2_3divlab1">删除食堂信息</label><br>
-    <label id="center2_3divlab2">此操作不可逆，是否确认删除该食堂？</label>
-    <button id="center2_3divbutton2">确认删除</button>
-</div>
-
-<div id="center3_1div">
-    <button id="center3_1divbutton1">X</button><br>
-    <label id="center3_1divlab1">添加食堂信息</label><br>
-    <label id="center3_1divlab2">食堂id:</label>
-    <input type="number"><br>
-    <label id="center3_1divlab3">食堂名:</label>
-    <input type="text"><br>
-    <label id="center3_1divlab4">食堂地点:</label>
-    <input type="text"><br>
-    <label id="center3_1divlab5">食堂经营时间:</label>
-    <input type="text"><br>
-    <button id="center3_1divbutton2">确认添加</button>
-</div>
-<div id="center3_2div">
-    <button id="center3_2divbutton1">X</button><br>
-    <label id="center3_2divlab1">修改评价信息</label><br>
-    <label id="center3_2divlab2">评价id:</label>
-    <input type="number" value=""><br>
-    <label id="center3_2divlab3">评价标题:</label>
-    <input type="text" value=""><br>
-    <label id="center3_2divlab4">评价内容:</label>
-    <input type="text" value=""><br>
-    <label id="center3_2divlab5">发送者:</label>
-    <input type="text" value=""><br>
-    <label id="center3_2divlab6">评价食堂:</label>
-    <input type="text" value=""><br>
-    <label id="center3_2divlab7">评价食物:</label>
-    <input type="text" value=""><br>
-    <label id="center3_2divlab8">接收者:</label>
-    <input type="text" value=""><br>
-    <button id="center3_2divbutton2">确认修改</button>
-</div>
-<div id="center3_3div">
-    <button id="center3_3divbutton1">X</button><br>
-    <label id="center3_3divlab1">删除评价信息</label><br>
-    <label id="center3_3divlab2">此操作不可逆，是否确认删除该食堂？</label>
-    <button id="center3_3divbutton2">确认删除</button>
-</div>
-
 </body>
 </html>
