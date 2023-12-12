@@ -109,18 +109,30 @@
 .center1divclab1{
     font-size: 18px;
     margin-left: 40px;
+    width: 50px;
+    overflow:hidden;
+    display: inline-block;
 }
 .center1divclab2{
     font-size: 18px;
-    margin-left: 110px;
+    margin-left: 100px;
+    width: 100px;
+    overflow:hidden;
+    display: inline-block;
 }
 .center1divclab3{
     font-size: 18px;
-    margin-left: 108px;
+    margin-left: 112px;
+    width: 100px;
+    overflow:hidden;
+    display: inline-block;
 }
 .center1divclab4{
     font-size: 18px;
-    margin-left: 105px;
+    margin-left: 115px;
+    width: 100px;
+    overflow:hidden;
+    display: inline-block;
 }
 .center1divcbutton1{
     width: 70px;
@@ -147,32 +159,40 @@
     margin-left: 250px;
 }
 #center2divtop{
-    width: 1000px;
+    width: 1050px;
     height: 50px;
     margin-top: 10px;
 }
 #center2divtoplab1{
     font-size: 20px;
-    margin-left: 50px;
+    margin-left: 10px;
 }
 #center2divtoplab2{
     font-size: 20px;
-    margin-left: 120px;
+    margin-left: 80px;
 }
 #center2divtoplab3{
     font-size: 20px;
-    margin-left: 120px;
+    margin-left: 80px;
 }
 #center2divtoplab4{
     font-size: 20px;
-    margin-left: 120px;
+    margin-left: 80px;
 }
 #center2divtoplab5{
     font-size: 20px;
-    margin-left: 120px;
+    margin-left: 80px;
+}
+#center2divtoplab6{
+    font-size: 20px;
+    margin-left: 80px;
+}
+#center2divtoplab7{
+    font-size: 20px;
+    margin-left: 135px;
 }
 .center2divc{
-    width: 1000px;
+    width: 1050px;
     height: 40px;
     border: 1px solid lightgray;
     padding-top: 5px;
@@ -180,20 +200,48 @@
     border-left: none;
 }
 .center2divclab1{
+    width: 50px;
+    overflow:hidden;
+    display: inline-block;
     font-size: 18px;
-    margin-left: 40px;
+    margin-left: 8px;
 }
 .center2divclab2{
+    width: 100px;
+    overflow:hidden;
     font-size: 18px;
-    margin-left: 110px;
+    margin-left: 50px;
+    display: inline-block;
 }
 .center2divclab3{
+    width: 130px;
+    height: 25px;
+    margin-top: 5px;
+    display: inline-block;
+    overflow:hidden;
     font-size: 18px;
-    margin-left: 100px;
+    margin-left: 35px;
 }
 .center2divclab4{
+    width: 100px;
+    overflow:hidden;
     font-size: 18px;
-    margin-left: 105px;
+    margin-left: 65px;
+    display: inline-block;
+}
+.center2divclab5{
+    width: 100px;
+    overflow:hidden;
+    font-size: 18px;
+    margin-left: 35px;
+    display: inline-block;
+}
+.center2divclab6{
+    width: 70px;
+    overflow:hidden;
+    font-size: 18px;
+    margin-left: 60px;
+    display: inline-block;
 }
 .center2divcbutton1{
     width: 70px;
@@ -254,7 +302,7 @@
 }
 #center3divtoplab8{
     font-size: 20px;
-    margin-left: 100px;
+    margin-left: 120px;
 }
 .center3divc{
     width: 1050px;
@@ -267,30 +315,51 @@
 .center3divclab1{
     font-size: 18px;
     margin-left: 10px;
+    width: 50px;
+    overflow:hidden;
+    display: inline-block;
 }
 .center3divclab2{
     font-size: 18px;
-    margin-left: 37px;
+    margin-left: 27px;
+    width: 60px;
+    overflow:hidden;
+    display: inline-block;
 }
 .center3divclab3{
     font-size: 18px;
-    margin-left: 40px;
+    margin-left: 30px;
+    width: 100px;
+    overflow:hidden;
+    display: inline-block;
 }
 .center3divclab4{
     font-size: 18px;
     margin-left: 40px;
+    width: 100px;
+    overflow:hidden;
+    display: inline-block;
 }
 .center3divclab5{
     font-size: 18px;
-    margin-left: 50px;
+    margin-left: 30px;
+    width: 100px;
+    overflow:hidden;
+    display: inline-block;
 }
 .center3divclab6{
     font-size: 18px;
     margin-left: 47px;
+    width: 80px;
+    overflow:hidden;
+    display: inline-block;
 }
 .center3divclab7{
     font-size: 18px;
     margin-left: 40px;
+    width: 100px;
+    overflow:hidden;
+    display: inline-block;
 }
 .center3divcbutton1{
     width: 70px;

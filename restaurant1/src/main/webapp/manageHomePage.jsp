@@ -76,17 +76,21 @@
     <div id="center2divtop">
         <label id="center2divtoplab1">id</label>
         <label id="center2divtoplab2">name</label>
-        <label id="center2divtoplab3">location</label>
-        <label id="center2divtoplab4">time</label>
-        <label id="center2divtoplab5">操作</label>
+        <label id="center2divtoplab3">introduction</label>
+        <label id="center2divtoplab4">cover</label>
+        <label id="center2divtoplab5">location</label>
+        <label id="center2divtoplab6">time</label>
+        <label id="center2divtoplab7">操作</label>
     </div>
 <c:set var="j" value="0" />
 <c:forEach var="r" items="${requestScope.rs}" varStatus="status">
     <div class="center2divc">
         <label class="center2divclab1">${r.id}</label>
         <label class="center2divclab2">${r.name}</label>
-        <label class="center2divclab3">${r.location}</label>
-        <label class="center2divclab4">${r.time}</label>
+        <label class="center2divclab3">${r.introduction}</label>
+        <label class="center2divclab4">${r.cover}</label>
+        <label class="center2divclab5">${r.location}</label>
+        <label class="center2divclab6">${r.time}</label>
         <button class="center2divcbutton1">编辑</button>
         <button class="center2divcbutton2">删除</button>
     </div>
