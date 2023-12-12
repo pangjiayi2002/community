@@ -1,13 +1,15 @@
 package Pojo;
 
-public class Restaurant {
-    private int id;
-    private String name;
-    private String location;
-    private String time;
+public class Resturant implements java.io.Serializable{
+    int id;
+    String name;
+    String location;
+    String time;
 
-    public Restaurant(){}
-    public Restaurant(int id, String name, String location, String time) {
+    public Resturant() {
+    }
+
+    public Resturant(int id, String name, String location, String time) {
         this.id = id;
         this.name = name;
         this.location = location;

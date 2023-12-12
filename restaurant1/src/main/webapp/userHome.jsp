@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: a
@@ -31,17 +32,16 @@
         <div  class="my_fav_con">
             <div>
                 <ul  class="my_fav_list">
-                    <li class="my_fav_list_li" id="">
-                        <a  class="my_fav_list_a" href="" target="_blank">
-                            （电脑故障）2.电脑突然就找不到网络，上不了网 - qq_38959715的博客
-                        </a>
-                        <label class="my_fav_list_label">
-                            <span >2019-04-08</span>
-                            <a  class="cancel_fav"><em>取消</em></a>
-                        </label>
-                    </li>
+                    <c:forEach var="restaurant" items="${applicationScope.RestaurantList}">
+                        <li class="my_fav_list_li" id="">
+                            <a  class="my_fav_list_a" href="./restaurantSearchServlet?restaurantName=${restaurant.name}" target="_blank">
+                                ${restaurant.name}
+                            </a>
+                        </li>
 
-                </ul> <!---->
+                    </c:forEach>
+
+                </ul>
             </div>
         </div>
     </div>

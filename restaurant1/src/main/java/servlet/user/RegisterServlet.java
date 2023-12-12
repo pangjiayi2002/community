@@ -21,6 +21,7 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<String> userList=userService.getUserNameList();
+
         String userCode=request.getParameter("userCode");
         String userPassword=request.getParameter("userPassword");
         User user=new User();
