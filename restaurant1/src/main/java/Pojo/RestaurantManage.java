@@ -1,6 +1,6 @@
 package Pojo;
 
-public class RestaurantManage {
+public class RestaurantManage implements java.io.Serializable{
     int id;
     String username;
     String password;

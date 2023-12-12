@@ -1,6 +1,6 @@
 package Pojo;
 
-public class Evaluate {
+public class Evaluate implements java.io.Serializable{
     int id;
     String title;
     String content;

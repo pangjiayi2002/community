@@ -45,7 +45,11 @@ function updatediv1Close(index){
     var updatedivs=document.getElementsByClassName("center1_2div");
     updatedivs[index].style.direction="none";
 }
-function updatediv1Yes(id,username,password,restaurant,index){
+function updatediv1Yes(index){
+    var id=document.getElementById("center1_1divinput1")[index].value;
+    var username=document.getElementById("center1_1divinput2")[index].value;
+    var password=document.getElementById("center1_1divinput3")[index].value;
+    var restaurant=document.getElementById("center1_1divinput4")[index].value;
     var params ="id=" + encodeURIComponent(id)+"&username="+encodeURIComponent(username)+"&password="+encodeURIComponent(password)+"&restaurant="+encodeURIComponent(restaurant);
     createXMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
@@ -108,7 +112,7 @@ function adddiv1Yes(){
     var username=document.getElementById("center1_1divinput2").value;
     var password=document.getElementById("center1_1divinput3").value;
     var restaurant=document.getElementById("center1_1divinput4").value;
-    var params ="id=" + encodeURIComponent(id);
+    var params ="id=" + encodeURIComponent(id)+"&username=" + encodeURIComponent(username)+"&password=" + encodeURIComponent(password)+"&restaurant=" + encodeURIComponent(restaurant);
     createXMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState == XMLHttpRequest.DONE) {
@@ -137,8 +141,12 @@ function updatediv2Close(index){
     var updatedivs=document.getElementsByClassName("center2_2div");
     updatedivs[index].style.direction="none";
 }
-function updatediv2Yes(id,username,password,restaurant,index){
-    var params ="id=" + encodeURIComponent(id)+"&username="+encodeURIComponent(username)+"&password="+encodeURIComponent(password)+"&restaurant="+encodeURIComponent(restaurant);
+function updatediv2Yes(index){
+    var id=document.getElementById("center2_1divinput1")[index].value;
+    var name=document.getElementById("center2_1divinput2")[index].value;
+    var location=document.getElementById("center2_1divinput3")[index].value;
+    var time=document.getElementById("center2_1divinput4")[index].value;
+    var params ="id=" + encodeURIComponent(id)+"&name="+encodeURIComponent(name)+"&location="+encodeURIComponent(location)+"&time="+encodeURIComponent(time);
     createXMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState == XMLHttpRequest.DONE) {
@@ -228,7 +236,15 @@ function updatediv3Close(index){
     var updatedivs=document.getElementsByClassName("center3_2div");
     updatedivs[index].style.direction="none";
 }
-function updatediv3Yes(id,title,content,sender,sendertype,restuarant,food,receiver,index){
+function updatediv3Yes(index){
+    var id=document.getElementsByClassName("center3_2divinput1")[index].value;
+    var title=document.getElementsByClassName("center3_2divinput2")[index].value;
+    var content=document.getElementsByClassName("center3_2divinput3")[index].value;
+    var sender=document.getElementsByClassName("center3_2divinput4")[index].value;
+    var sendertype=document.getElementsByClassName("center3_2divinput5")[index].value;
+    var restuarant=document.getElementsByClassName("center3_2divinput6")[index].value;
+    var food=document.getElementsByClassName("center3_2divinput7")[index].value;
+    var receiver=document.getElementsByClassName("center3_2divinput8")[index].value;
     var params ="id=" + encodeURIComponent(id)+"&title="+encodeURIComponent(title)+"&content="+encodeURIComponent(content)+"&sender="+encodeURIComponent(sender)+"&sendertype="+encodeURIComponent(sendertype)+"&restuarant="+encodeURIComponent(restuarant)+"&food="+encodeURIComponent(food)+"&receiver="+encodeURIComponent(receiver);
     createXMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
