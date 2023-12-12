@@ -33,17 +33,17 @@
       restaurantAdminService resAdminSer=new restaurantAdminServiceImpl();
       RestaurantInfo info=resAdminSer.getInfoById(id); %>
   <h1>修改食堂信息</h1>
-  <form role="form" action="${pageContext.request.contextPath}/NoticeModifyServlet" method="post" class="form-horizontal">
+  <form role="form" action="${pageContext.request.contextPath}/RestaurantModifyServlet" method="post" class="form-horizontal">
     <input type="hidden" name="id" value="<%=info.getId()%>">
     <div class="form-group">
       <label for="name">食堂名称</label>
       <input type="text" class="form-control" id="name" name="name" value="<%=info.getName()%>">
     </div>
-      //图片暂时改不了
+<%--      图片暂时改不了--%>
     <div class="form-group">
       <label for="cover">图片：</label>
 <%--      <input type="file" class="form-control" id="newCover" name="newCover">--%>
-      <input type="hidden" id="cover" name="cover" value="<%=info.getCover()%>">
+      <input type="file" id="cover" name="cover" value="<%=info.getCover()%>">
       <img id="coverImage" src="<%=info.getCover()%>">
     </div>
     <div class="form-group">

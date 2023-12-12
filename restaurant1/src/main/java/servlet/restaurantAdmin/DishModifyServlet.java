@@ -1,5 +1,6 @@
 package servlet.restaurantAdmin;
 
+import Pojo.Dish;
 import Pojo.RestaurantInfo;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -9,8 +10,8 @@ import service.restaurantAdmin.restaurantAdminServiceImpl;
 
 import java.io.IOException;
 
-@WebServlet(name = "NoticeModifyServlet", value = "/NoticeModifyServlet")
-public class NoticeModifyServlet extends HttpServlet {
+@WebServlet(name = "DishModifyServlet", value = "/DishModifyServlet")
+public class DishModifyServlet extends HttpServlet {
     private restaurantAdminService resAdminSer=new restaurantAdminServiceImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,13 +22,18 @@ public class NoticeModifyServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
-        String introduction = request.getParameter("introduction");
-        String cover = request.getParameter("cover");
-        String location = request.getParameter("location");
-        String time=request.getParameter("time");
-        RestaurantInfo info=new RestaurantInfo(id,name,introduction,cover,location,time);
-        System.out.println(info.toString());
-        resAdminSer.modify(info);
-        request.getRequestDispatcher("restaurantList.jsp").forward(request,response);
+        String foodtype = request.getParameter("foodtype");
+        Float price = Float.valueOf(request.getParameter("price"));
+        String cover = "dish/"+request.getParameter("cover");
+        String restaurantName=request.getParameter("restaurantName");
+        Dish dish=new Dish(id,name,foodtype,price,cover,restaurantName);
+        System.out.println(dish.toString());
+        try {
+            resAdminSer.modifyDish(dish);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        request.getRequestDispatcher("dishList.jsp").forward(request,response);
+
     }
 }
