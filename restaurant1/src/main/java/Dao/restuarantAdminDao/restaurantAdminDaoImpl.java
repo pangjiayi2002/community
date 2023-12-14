@@ -1,6 +1,7 @@
 package Dao.restuarantAdminDao;
 
 import Dao.BaseDao;
+import Pojo.Dish;
 import Pojo.RestaurantInfo;
 import Pojo.restaurantAdmin;
 
@@ -98,6 +99,93 @@ public class restaurantAdminDaoImpl implements restaurantAdminDao{
         if (null != connection) {
             String sql = "update restaurant.restaurantInfo set name=?,introduction=?,cover=?,location=?,time=? where id = ? ";
             Object[] params = {info.getName(),info.getIntroduction(),info.getCover(),info.getLocation(),info.getTime(),info.getId()};
+            flag = BaseDao.execute(connection, pstm, sql, params);
+            BaseDao.closeResource(null, pstm, null);
+        }
+        return flag;
+    }
+
+    @Override
+    public Dish getDishById(Connection connection, String id) throws Exception {
+        Dish dish = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        if (null != connection) {
+            String sql = "select * from restaurant.dish where id=?";
+            Object[] params = {id};
+            rs = BaseDao.execute(connection, pstm, rs, sql, params);
+            if (rs.next()) {
+                dish = new Dish();
+                dish.setId(rs.getInt("id"));
+                dish.setName(rs.getString("name"));
+                dish.setFoodtype(rs.getString("foodtype"));
+                dish.setPrice(rs.getFloat("price"));
+                dish.setCover(rs.getString("cover"));
+                dish.setRestaurantName(rs.getString("restaurantName"));
+            }
+            BaseDao.closeResource(null, pstm, rs);
+        }
+        return dish;
+    }
+
+    @Override
+    public List<Dish> getAllDish(Connection connection) throws Exception {
+        PreparedStatement pstm=null;
+        ResultSet rs=null;
+        ArrayList<Dish> List=new ArrayList<>();
+        if(null!=connection){
+            List<Object> DishList=new ArrayList<>();
+            String sql="select * from restaurant.dish";
+            Object[] params=DishList.toArray();
+            rs= BaseDao.execute(connection,pstm,rs,sql,params);
+            while(rs.next()){
+                int id=rs.getInt("id");
+                String name=rs.getString("name");
+                String foodtype=rs.getString("foodtype");
+                Float price=rs.getFloat("price");
+                String cover=rs.getString("cover");
+                String restaurantName=rs.getString("restaurantName");
+                Dish dish=new Dish(id,name,foodtype,price,cover,restaurantName);
+                List.add(dish);
+            }
+            BaseDao.closeResource(null,pstm,rs);
+        }
+        return List;
+    }
+
+    @Override
+    public int modifyDish(Connection connection, Dish dish) throws Exception {
+        int flag = 0;
+        PreparedStatement pstm = null;
+        if (null != connection) {
+            String sql = "update restaurant.dish set name=?,foodtype=?,price=?,cover=?,restaurantName=? where id = ? ";
+            Object[] params = {dish.getName(),dish.getFoodtype(),dish.getPrice(),dish.getCover(),dish.getRestaurantName(),dish.getId()};
+            flag = BaseDao.execute(connection, pstm, sql, params);
+            BaseDao.closeResource(null, pstm, null);
+        }
+        return flag;
+    }
+
+    @Override
+    public int addDish(Connection connection, Dish dish) throws Exception {
+        PreparedStatement pstm = null;
+        int updateRows = 0;
+        if (null != connection) {
+            String sql = "insert into restaurant.dish (name,foodtype,price,cover,restaurantName) values(?,?,?,?,?)";
+            Object[] params = {dish.getName(),dish.getFoodtype(),dish.getPrice(),dish.getCover(),dish.getRestaurantName()};
+            updateRows = BaseDao.execute(connection, pstm, sql, params);
+            BaseDao.closeResource(null, pstm, null);
+        }
+        return updateRows;
+    }
+
+    @Override
+    public int deleteDishById(Connection connection, String id) throws Exception {
+        PreparedStatement pstm = null;
+        int flag = 0;
+        if (null != connection) {
+            String sql = "delete from restaurant.dish where id=?";
+            Object[] params = {id};
             flag = BaseDao.execute(connection, pstm, sql, params);
             BaseDao.closeResource(null, pstm, null);
         }

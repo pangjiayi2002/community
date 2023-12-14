@@ -3,10 +3,12 @@ package service.restaurantAdmin;
 import Dao.BaseDao;
 import Dao.restuarantAdminDao.restaurantAdminDao;
 import Dao.restuarantAdminDao.restaurantAdminDaoImpl;
+import Pojo.Dish;
 import Pojo.RestaurantInfo;
 import Pojo.restaurantAdmin;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 public class restaurantAdminServiceImpl implements restaurantAdminService{
@@ -81,6 +83,100 @@ public class restaurantAdminServiceImpl implements restaurantAdminService{
         try {
             connection = BaseDao.getConnection();
             if (resAdminDao.modify(connection, restaurantInfo) > 0)
+                flag = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            BaseDao.closeResource(connection, null, null);
+        }
+        return flag;
+    }
+
+    @Override
+    public Dish getDishById(String id) {
+        Dish dish = null;
+        Connection connection = null;
+        try {
+            connection = BaseDao.getConnection();
+            dish = resAdminDao.getDishById(connection,id);
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+            dish = null;
+        } finally {
+            BaseDao.closeResource(connection, null, null);
+        }
+        return dish;
+    }
+
+    @Override
+    public List<Dish> getAllDish() throws Exception {
+        Connection connection = null;
+        List<Dish> dishList = null;
+        try {
+            connection = BaseDao.getConnection();
+            dishList = resAdminDao.getAllDish(connection);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            BaseDao.closeResource(connection, null, null);
+        }
+        return dishList;
+    }
+
+    @Override
+    public boolean modifyDish(Dish dish) throws Exception {
+        Connection connection = null;
+        boolean flag = false;
+        try {
+            connection = BaseDao.getConnection();
+            if (resAdminDao.modifyDish(connection, dish) > 0)
+                flag = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            BaseDao.closeResource(connection, null, null);
+        }
+        return flag;
+    }
+
+    @Override
+    public boolean addDish(Dish dish) {
+        boolean flag = false;
+        Connection connection = null;
+        try {
+            connection = BaseDao.getConnection();
+            connection.setAutoCommit(false);//开启JDBC事务管理
+            int updateRows = resAdminDao.addDish(connection, dish);
+            connection.commit();
+            if (updateRows > 0) {
+                flag = true;
+                System.out.println("add success!");
+            } else {
+                System.out.println("add failed!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            try {
+                System.out.println("rollback==================");
+                connection.rollback();
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+        } finally {
+            //在service层进行connection连接的关闭
+            BaseDao.closeResource(connection, null, null);
+        }
+        return flag;
+    }
+
+    @Override
+    public boolean deleteById(String id) {
+        Connection connection = null;
+        boolean flag = false;
+        try {
+            connection = BaseDao.getConnection();
+            if (resAdminDao.deleteDishById(connection,id) > 0)
                 flag = true;
         } catch (Exception e) {
             e.printStackTrace();

@@ -7,15 +7,21 @@ public class Dish {
     private float price;
     private String cover;
     private String restaurantName;
-    public Dish(){}
+
+    public Dish() {
+    }
 
     public Dish(int id, String name, String foodtype, float price, String cover, String restaurantName) {
+
         this.id = id;
         this.name = name;
         this.foodtype = foodtype;
         this.price = price;
         this.cover = cover;
         this.restaurantName = restaurantName;
+    }
+
+    public Dish(String name, String foodtype, Float price, String cover, String restaurantName) {
     }
 
     public int getId() {
@@ -64,5 +70,17 @@ public class Dish {
 
     public void setRestaurantName(String restaurantName) {
         this.restaurantName = restaurantName;
+    }
+
+    @Override
+    public String toString() {
+        return "Dish{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", foodtype='" + foodtype + '\'' +
+                ", price=" + price +
+                ", cover='" + cover + '\'' +
+                ", restaurantName='" + restaurantName + '\'' +
+                '}';
     }
 }
