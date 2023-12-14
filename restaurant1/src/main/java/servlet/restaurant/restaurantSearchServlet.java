@@ -32,6 +32,8 @@ public class restaurantSearchServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session=request.getSession(true);
+        RestaurantInfo restaurantInfo= (RestaurantInfo) session.getAttribute("restaurantInfo");//找到用户所进入的食堂
 
 
     }
