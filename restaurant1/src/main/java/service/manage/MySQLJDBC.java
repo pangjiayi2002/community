@@ -4,13 +4,30 @@ import Pojo.Evaluate;
 import Pojo.RestaurantInfo;
 import Pojo.RestaurantManage;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class MySQLJDBC {
     //查看食堂管理员
-    public static ArrayList<RestaurantManage> searchResturantManage(){
+    public static ArrayList<RestaurantManage> searchResturantManage() throws SQLException {
         ArrayList<RestaurantManage> rms=new ArrayList<>();
-
+        Connection connection=MySQLConnection.getConnection();
+        Statement statement=connection.createStatement();
+        ResultSet resultSet;
+        String sql="select * from `restaurantadmin`;";
+        resultSet=statement.executeQuery(sql);
+        while (resultSet.next()){
+            int id=resultSet.getInt("id");
+            String username=resultSet.getString("username");
+            String password=resultSet.getString("password");
+            String resturant=resultSet.getString("resturant");
+        }
+        resultSet.close();
+        statement.close();
+        connection.close();
         return rms;
     }
     //添加食堂管理员
