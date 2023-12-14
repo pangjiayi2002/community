@@ -56,11 +56,20 @@
             <label for="restaurantName">供应的食堂：</label>
             <input type="text" class="form-control" id="restaurantName" name="restaurantName" value="<%=dish.getRestaurantName()%>">
         </div>
-        <button type="submit" class="btn btn-primary">更新</button>
+        <button type="submit" id="updateButton" class="btn btn-primary">更新</button>
         <a href="dishList.jsp" class="btn btn-default">取消</a>
     </form>
     <% } %>
 </div>
+<script>
+    // 获取按钮元素
+    var updateButton = document.getElementById("updateButton");
+    // 添加按钮点击事件监听器
+    updateButton.addEventListener("click", function() {
+        // 在按钮点击后显示弹窗
+        window.alert("修改菜品信息成功");
+    });
+</script>
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>

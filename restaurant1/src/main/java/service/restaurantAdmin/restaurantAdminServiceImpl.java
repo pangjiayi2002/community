@@ -1,9 +1,10 @@
 package service.restaurantAdmin;
 
 import Dao.BaseDao;
-import Dao.restuarantAdminDao.restaurantAdminDao;
-import Dao.restuarantAdminDao.restaurantAdminDaoImpl;
+import Dao.restaurantAdminDao.restaurantAdminDao;
+import Dao.restaurantAdminDao.restaurantAdminDaoImpl;
 import Pojo.Dish;
+import Pojo.Evaluate;
 import Pojo.RestaurantInfo;
 import Pojo.restaurantAdmin;
 
@@ -184,5 +185,52 @@ public class restaurantAdminServiceImpl implements restaurantAdminService{
             BaseDao.closeResource(connection, null, null);
         }
         return flag;
+    }
+
+    @Override
+    public Evaluate getEvaluateById(String id) {
+        Evaluate evaluate = null;
+        Connection connection = null;
+        try {
+            connection = BaseDao.getConnection();
+            evaluate = resAdminDao.getEvaluateById(connection,id);
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+            evaluate = null;
+        } finally {
+            BaseDao.closeResource(connection, null, null);
+        }
+        return evaluate;
+    }
+
+    @Override
+    public List<Evaluate> getAllEvaluate() throws Exception {
+        Connection connection = null;
+        List<Evaluate> evaluateList = null;
+        try {
+            connection = BaseDao.getConnection();
+            evaluateList = resAdminDao.getAllEvaluate(connection);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            BaseDao.closeResource(connection, null, null);
+        }
+        return evaluateList;
+    }
+
+    @Override
+    public int notRead() {
+        Connection connection = null;
+        int count=0;
+        try {
+            connection = BaseDao.getConnection();
+            count=resAdminDao.notRead(connection);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            BaseDao.closeResource(connection, null, null);
+        }
+        return count;
     }
 }

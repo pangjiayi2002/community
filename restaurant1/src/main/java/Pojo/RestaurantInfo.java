@@ -5,7 +5,7 @@ public class RestaurantInfo {
     private String name;//食堂名称
     private String introduction;//简介
     private String cover;//食堂图片
-    private String location;
+    private String location;//地点
     private String time;//营业时间
 
     public int getId() {

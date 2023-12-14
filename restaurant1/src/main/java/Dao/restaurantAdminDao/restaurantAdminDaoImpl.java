@@ -1,7 +1,8 @@
-package Dao.restuarantAdminDao;
+package Dao.restaurantAdminDao;
 
 import Dao.BaseDao;
 import Pojo.Dish;
+import Pojo.Evaluate;
 import Pojo.RestaurantInfo;
 import Pojo.restaurantAdmin;
 
@@ -190,5 +191,80 @@ public class restaurantAdminDaoImpl implements restaurantAdminDao{
             BaseDao.closeResource(null, pstm, null);
         }
         return flag;
+    }
+
+    @Override
+    public Evaluate getEvaluateById(Connection connection, String id) throws Exception {
+        Evaluate evaluate = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        if (null != connection) {
+            String sql = "select * from restaurant.evaluate where id=?";
+            Object[] params = {id};
+            rs = BaseDao.execute(connection, pstm, rs, sql, params);
+            if (rs.next()) {
+                evaluate = new Evaluate();
+                evaluate.setId(rs.getInt("id"));
+                evaluate.setTitle(rs.getString("title"));
+                evaluate.setContent(rs.getString("content"));
+                evaluate.setSender(rs.getString("sender"));
+                evaluate.setSendertype(rs.getString("sendertype"));
+                evaluate.setRestaurant(rs.getString("restaurant"));
+                evaluate.setFood(rs.getString("food"));
+                evaluate.setReceiver(rs.getString("receiver"));
+                evaluate.setIsread(rs.getInt("isread"));
+            }
+            BaseDao.closeResource(null, pstm, rs);
+        }
+        return evaluate;
+    }
+
+    @Override
+    public List<Evaluate> getAllEvaluate(Connection connection) throws Exception {
+        PreparedStatement pstm=null;
+        ResultSet rs=null;
+        ArrayList<Evaluate> List=new ArrayList<>();
+        if(null!=connection){
+            List<Object> EvaluateList=new ArrayList<>();
+            String sql="select * from restaurant.evaluate";
+            Object[] params=EvaluateList.toArray();
+            rs= BaseDao.execute(connection,pstm,rs,sql,params);
+            while(rs.next()){
+                int id=rs.getInt("id");
+                String title=rs.getString("title");
+                String content=rs.getString("content");
+                String sender=rs.getString("sender");
+                String sendertype=rs.getString("sendertype");
+                String restaurant=rs.getString("restaurant");
+                String food=rs.getString("food");
+                String receiver=rs.getString("receiver");
+                int isread=rs.getInt("isread");
+                Evaluate evaluate=new Evaluate(id,title,content,sender,sendertype,restaurant,food,receiver,isread);
+                List.add(evaluate);
+            }
+            BaseDao.closeResource(null,pstm,rs);
+        }
+        return List;
+    }
+
+    @Override
+    public int notRead(Connection connection) throws Exception {
+        PreparedStatement pstm=null;
+        ResultSet rs=null;
+        int count=0;
+        if(null!=connection){
+            List<Object> EvaluateList=new ArrayList<>();
+            String sql="select isread from restaurant.evaluate";
+            Object[] params=EvaluateList.toArray();
+            rs= BaseDao.execute(connection,pstm,rs,sql,params);
+            while(rs.next()){
+                int isread=rs.getInt("isread");
+                if (isread==1){
+                    count++;
+                }
+            }
+            BaseDao.closeResource(null,pstm,rs);
+        }
+        return count;
     }
 }

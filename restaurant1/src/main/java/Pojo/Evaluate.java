@@ -6,22 +6,25 @@ public class Evaluate implements java.io.Serializable{
     String content;
     String sender;
     String sendertype;
-    String restuarant;
+    String restaurant;
     String food;
     String receiver;
+    int isread;
 
     public Evaluate() {
     }
 
-    public Evaluate(int id, String title, String content, String sender, String sendertype, String restuarant, String food, String receiver) {
+
+    public Evaluate(int id, String title, String content, String sender, String sendertype, String restaurant, String food, String receiver, int isread) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.sender = sender;
         this.sendertype = sendertype;
-        this.restuarant = restuarant;
+        this.restaurant = restaurant;
         this.food = food;
         this.receiver = receiver;
+        this.isread = isread;
     }
 
     public int getId() {
@@ -64,12 +67,12 @@ public class Evaluate implements java.io.Serializable{
         this.sendertype = sendertype;
     }
 
-    public String getRestuarant() {
-        return restuarant;
+    public String getRestaurant() {
+        return restaurant;
     }
 
-    public void setRestuarant(String restuarant) {
-        this.restuarant = restuarant;
+    public void setRestaurant(String restaurant) {
+        this.restaurant = restaurant;
     }
 
     public String getFood() {
@@ -86,5 +89,13 @@ public class Evaluate implements java.io.Serializable{
 
     public void setReceiver(String receiver) {
         this.receiver = receiver;
+    }
+
+    public int getIsread() {
+        return isread;
+    }
+
+    public void setIsread(int isread) {
+        this.isread = isread;
     }
 }

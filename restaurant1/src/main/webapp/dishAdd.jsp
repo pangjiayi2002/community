@@ -49,9 +49,19 @@
             <label for="restaurantName">供应的食堂</label>
             <input class="form-control" id="restaurantName" name="restaurantName">
         </div>
-        <button type="submit" class="btn btn-primary">提交</button>
+        <button type="submit" id="addButton" class="btn btn-primary">提交</button>
         <a href="dishList.jsp" class="btn btn-default">取消</a>
     </form>
 </div>
+<script>
+    // 获取按钮元素
+    var updateButton = document.getElementById("addButton");
+
+    // 添加按钮点击事件监听器
+    updateButton.addEventListener("click", function() {
+        // 在按钮点击后显示弹窗
+        window.alert("菜品添加成功");
+    });
+</script>
 </body>
 </html>

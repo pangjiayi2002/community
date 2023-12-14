@@ -1,6 +1,7 @@
-package Dao.restuarantAdminDao;
+package Dao.restaurantAdminDao;
 
 import Pojo.Dish;
+import Pojo.Evaluate;
 import Pojo.RestaurantInfo;
 import Pojo.restaurantAdmin;
 
@@ -29,12 +30,15 @@ public interface restaurantAdminDao {
     List<Dish> getAllDish(Connection connection)throws Exception;
     //修改菜品信息
     int modifyDish(Connection connection, Dish dish) throws Exception;
-
     //添加菜品
     int addDish(Connection connection,Dish dish) throws Exception;
     //删除菜品
     public int deleteDishById(Connection connection, String id)throws Exception;
 
-
+    //获取评论信息
+    Evaluate getEvaluateById(Connection connection, String id) throws Exception;
+    List<Evaluate> getAllEvaluate(Connection connection)throws Exception;
+    //获取未读评论
+    int notRead(Connection connection)throws Exception;
 
 }
