@@ -144,9 +144,11 @@ function updatediv2Close(index){
 function updatediv2Yes(index){
     var id=document.getElementById("center2_1divinput1")[index].value;
     var name=document.getElementById("center2_1divinput2")[index].value;
-    var location=document.getElementById("center2_1divinput3")[index].value;
-    var time=document.getElementById("center2_1divinput4")[index].value;
-    var params ="id=" + encodeURIComponent(id)+"&name="+encodeURIComponent(name)+"&location="+encodeURIComponent(location)+"&time="+encodeURIComponent(time);
+    var introduction=document.getElementById("center2_1divinput3").value;
+    var cover=document.getElementById("center2_1divinput4").value;
+    var location=document.getElementById("center2_1divinput5")[index].value;
+    var time=document.getElementById("center2_1divinput6")[index].value;
+    var params ="id=" + encodeURIComponent(id)+"&name=" + encodeURIComponent(name)+"&introduction=" + encodeURIComponent(introduction)+"&cover=" + encodeURIComponent(cover)+"&location=" + encodeURIComponent(location)+"&time=" + encodeURIComponent(time);
     createXMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState == XMLHttpRequest.DONE) {
@@ -206,9 +208,11 @@ function adddiv2Close(){
 function adddiv2Yes(){
     var id=document.getElementById("center2_1divinput1").value;
     var name=document.getElementById("center2_1divinput2").value;
-    var location=document.getElementById("center2_1divinput3").value;
-    var time=document.getElementById("center2_1divinput4").value;
-    var params ="id=" + encodeURIComponent(id);
+    var introduction=document.getElementById("center2_1divinput3").value;
+    var cover=document.getElementById("center2_1divinput4").value;
+    var location=document.getElementById("center2_1divinput5").value;
+    var time=document.getElementById("center2_1divinput6").value;
+    var params ="id=" + encodeURIComponent(id)+"&name=" + encodeURIComponent(name)+"&introduction=" + encodeURIComponent(introduction)+"&cover=" + encodeURIComponent(cover)+"&location=" + encodeURIComponent(location)+"&time=" + encodeURIComponent(time);
     createXMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState == XMLHttpRequest.DONE) {
