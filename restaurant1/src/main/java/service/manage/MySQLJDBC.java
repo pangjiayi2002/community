@@ -77,7 +77,7 @@ public class MySQLJDBC {
         resultSet=statement.executeQuery(sql);
         while (resultSet.next()){
             int id=resultSet.getInt("id");
-            String name=resultSet.getString("username");
+            String name=resultSet.getString("name");
             String introduction=resultSet.getString("introduction");
             String cover=resultSet.getString("cover");
             String location=resultSet.getString("location");
@@ -142,7 +142,8 @@ public class MySQLJDBC {
             String restaurant=resultSet.getString("restaurant");
             String food=resultSet.getString("food");
             String receiver=resultSet.getString("receiver");
-            Evaluate e=new Evaluate(id,title,content,sender,sendertype,restaurant,food,receiver);
+            int isread=resultSet.getInt("isread");
+            Evaluate e=new Evaluate(id,title,content,sender,sendertype,restaurant,food,receiver,isread);
             es.add(e);
         }
         resultSet.close();

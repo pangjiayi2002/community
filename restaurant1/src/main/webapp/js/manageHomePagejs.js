@@ -99,10 +99,7 @@ function deletediv1Yes(id,index){
     xmlHttp.send(params);
 }
 
-function adddiv1On(){
-    var div=document.getElementById("center1_1div");
-    div.style.display="block";
-}
+
 function adddiv1Close(){
     var div=document.getElementById("center1_1div");
     div.style.display="none";
