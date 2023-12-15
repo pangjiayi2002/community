@@ -23,9 +23,10 @@
     cursor: pointer;
     transition: background-color 0.3s ease;float: right" value="返回" onclick="window.location.href='userHome.jsp'">
 <br>
+<!--搜索该食堂内的菜-->
 <div class="search-form">
-    <form id="searchForm" action="${pageContext.request.contextPath}/" method="get">
-        <input class="search-input" type="text" name="query" placeholder="搜索菜品名称...">
+    <form id="searchForm" action="${pageContext.request.contextPath}/SearchDishInResServlet" method="post">
+        <input class="search-input" type="text" name="queryDish" placeholder="搜索菜品名称...">
         <input class="search-button" type="submit" value="搜索"><!--模糊搜索菜名-->
     </form>
 </div>
