@@ -9,16 +9,29 @@
 <html>
 <head>
     <title>菜品详情</title>
+    <style>
+        #detail::after {
+            content: "";
+            display: table;
+            clear: both; /* 清除浮动 */
+        }
+    </style>
 </head>
 <body>
-<div id="image" style="float:left;">
-    <img src="${sessionScope.dish.cover}" alt="none" width="50%" height="50%">
+<h1>菜品详情</h1>
+<div id="detail">
+    <div id="image" style="float:left;">
+        <img src="${sessionScope.dish.cover}" alt="none" width="80%" height="50%">
+    </div>
+    <div id="info" style="float: left">
+        <p>菜名   ：${sessionScope.dish.name}</p>
+        <p>菜系   ：${sessionScope.dish.foodtype}</p>
+        <p>价格   ：${sessionScope.dish.price}</p>
+        <p>食堂名称：${sessionScope.dish.restaurantName}</p>
+    </div>
 </div>
-<div id="info" style="float: left">
-    <p>菜名   ：${sessionScope.dish.name}</p>
-    <p>菜系   ：${sessionScope.dish.foodtype}</p>
-    <p>价格   ：${sessionScope.dish.price}</p>
-    <p>食堂名称：${sessionScope.dish.restaurantName}</p>
+<div id="comment" style="">
+    <h2>评价：</h2>
 </div>
 </body>
 </html>

@@ -15,12 +15,6 @@
 </head>
 <body>
 <h1>欢迎来到上海理工大学食堂点评交流社区！</h1>
-<div class="search-form">
-    <form id="searchForm" action="${pageContext.request.contextPath}/SearchServlet" method="get">
-        <input class="search-input" type="text" name="query" placeholder="搜索食堂名称...">
-        <input class="search-button" type="submit"value="搜索">
-    </form>
-</div>
 <div>
     <img src="./images/logo.jpg" alt="none" width="90%">
 </div>
