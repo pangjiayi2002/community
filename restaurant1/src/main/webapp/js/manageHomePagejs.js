@@ -57,11 +57,11 @@ function updatediv1Yes(index){
         if (xmlHttp.readyState == XMLHttpRequest.DONE) {
             if (xmlHttp.status == 200) {
                 var updatedivs=document.getElementsByClassName("center1_2div");
-                updatedivs[index].style.direction="none";
+                updatedivs[index].style.display="none";
                 alert("修改成功！");
             } else {
                 var updatedivs=document.getElementsByClassName("center1_2div");
-                updatedivs[index].style.direction="none";
+                updatedivs[index].style.display="none";
                 alert("修改失败！");
             }
         }
@@ -86,11 +86,11 @@ function deletediv1Yes(id,index){
         if (xmlHttp.readyState == XMLHttpRequest.DONE) {
             if (xmlHttp.status == 200) {
                 var updatedivs=document.getElementsByClassName("center1_3div");
-                updatedivs[index].style.direction="none";
+                updatedivs[index].style.display="none";
                 alert("删除成功！");
             } else {
                 var updatedivs=document.getElementsByClassName("center1_3div");
-                updatedivs[index].style.direction="none";
+                updatedivs[index].style.display="none";
                 alert("删除失败！");
             }
         }
@@ -119,11 +119,11 @@ function adddiv1Yes(){
         if (xmlHttp.readyState == XMLHttpRequest.DONE) {
             if (xmlHttp.status == 200) {
                 var div=document.getElementById("center1_1div");
-                div.style.direction="none";
+                div.style.display="none";
                 alert("添加成功！");
             } else {
                 var div=document.getElementById("center1_1div");
-                div.style.direction="none";
+                div.style.display="none";
                 alert("添加失败！");
             }
         }
@@ -145,8 +145,8 @@ function updatediv2Close(index){
 function updatediv2Yes(index){
     var id=document.getElementsByClassName("center2_2divinput1")[index].value;
     var name=document.getElementsByClassName("center2_2divinput2")[index].value;
-    var introduction=document.getElementsByClassName("center2_2divinput3").value;
-    var cover=document.getElementsByClassName("center2_2divinput4").value;
+    var introduction=document.getElementsByClassName("center2_2divinput3")[index].value;
+    var cover=document.getElementsByClassName("center2_2divinput4")[index].value;
     var location=document.getElementsByClassName("center2_2divinput5")[index].value;
     var time=document.getElementsByClassName("center2_2divinput6")[index].value;
     var params ="id=" + encodeURIComponent(id)+"&name=" + encodeURIComponent(name)+"&introduction=" + encodeURIComponent(introduction)+"&cover=" + encodeURIComponent(cover)+"&location=" + encodeURIComponent(location)+"&time=" + encodeURIComponent(time);
@@ -155,11 +155,11 @@ function updatediv2Yes(index){
         if (xmlHttp.readyState == XMLHttpRequest.DONE) {
             if (xmlHttp.status == 200) {
                 var updatedivs=document.getElementsByClassName("center2_2div");
-                updatedivs[index].style.direction="none";
+                updatedivs[index].style.display="none";
                 alert("修改成功！");
             } else {
                 var updatedivs=document.getElementsByClassName("center2_2div");
-                updatedivs[index].style.direction="none";
+                updatedivs[index].style.display="none";
                 alert("修改失败！");
             }
         }
@@ -184,11 +184,11 @@ function deletediv2Yes(id,index){
         if (xmlHttp.readyState == XMLHttpRequest.DONE) {
             if (xmlHttp.status == 200) {
                 var updatedivs=document.getElementsByClassName("center2_3div");
-                updatedivs[index].style.direction="none";
+                updatedivs[index].style.display="none";
                 alert("删除成功！");
             } else {
                 var updatedivs=document.getElementsByClassName("center2_3div");
-                updatedivs[index].style.direction="none";
+                updatedivs[index].style.display="none";
                 alert("删除失败！");
             }
         }
@@ -219,11 +219,11 @@ function adddiv2Yes(){
         if (xmlHttp.readyState == XMLHttpRequest.DONE) {
             if (xmlHttp.status == 200) {
                 var div=document.getElementById("center2_1div");
-                div.style.direction="none";
+                div.style.display="none";
                 alert("添加成功！");
             } else {
                 var div=document.getElementById("center2_1div");
-                div.style.direction="none";
+                div.style.display="none";
                 alert("添加失败！");
             }
         }
@@ -246,21 +246,20 @@ function updatediv3Yes(index){
     var title=document.getElementsByClassName("center3_2divinput2")[index].value;
     var content=document.getElementsByClassName("center3_2divinput3")[index].value;
     var sender=document.getElementsByClassName("center3_2divinput4")[index].value;
-    var sendertype=document.getElementsByClassName("center3_2divinput5")[index].value;
-    var restuarant=document.getElementsByClassName("center3_2divinput6")[index].value;
-    var food=document.getElementsByClassName("center3_2divinput7")[index].value;
-    var receiver=document.getElementsByClassName("center3_2divinput8")[index].value;
-    var params ="id=" + encodeURIComponent(id)+"&title="+encodeURIComponent(title)+"&content="+encodeURIComponent(content)+"&sender="+encodeURIComponent(sender)+"&sendertype="+encodeURIComponent(sendertype)+"&restuarant="+encodeURIComponent(restuarant)+"&food="+encodeURIComponent(food)+"&receiver="+encodeURIComponent(receiver);
+    var restuarant=document.getElementsByClassName("center3_2divinput5")[index].value;
+    var food=document.getElementsByClassName("center3_2divinput6")[index].value;
+    var receiver=document.getElementsByClassName("center3_2divinput7")[index].value;
+    var params ="id=" + encodeURIComponent(id)+"&title="+encodeURIComponent(title)+"&content="+encodeURIComponent(content)+"&sender="+encodeURIComponent(sender)+"&restuarant="+encodeURIComponent(restuarant)+"&food="+encodeURIComponent(food)+"&receiver="+encodeURIComponent(receiver);
     createXMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState == XMLHttpRequest.DONE) {
             if (xmlHttp.status == 200) {
                 var updatedivs=document.getElementsByClassName("center3_2div");
-                updatedivs[index].style.direction="none";
+                updatedivs[index].style.display="none";
                 alert("修改成功！");
             } else {
                 var updatedivs=document.getElementsByClassName("center3_2div");
-                updatedivs[index].style.direction="none";
+                updatedivs[index].style.display="none";
                 alert("修改失败！");
             }
         }
@@ -285,11 +284,11 @@ function deletediv3Yes(id,index){
         if (xmlHttp.readyState == XMLHttpRequest.DONE) {
             if (xmlHttp.status == 200) {
                 var updatedivs=document.getElementsByClassName("center3_3div");
-                updatedivs[index].style.direction="none";
+                updatedivs[index].style.display="none";
                 alert("删除成功！");
             } else {
                 var updatedivs=document.getElementsByClassName("center3_3div");
-                updatedivs[index].style.direction="none";
+                updatedivs[index].style.display="none";
                 alert("删除失败！");
             }
         }
@@ -322,11 +321,11 @@ function adddiv3Yes(){
         if (xmlHttp.readyState == XMLHttpRequest.DONE) {
             if (xmlHttp.status == 200) {
                 var div=document.getElementById("center3_1div");
-                div.style.direction="none";
+                div.style.display="none";
                 alert("添加成功！");
             } else {
                 var div=document.getElementById("center3_1div");
-                div.style.direction="none";
+                div.style.display="none";
                 alert("添加失败！");
             }
         }

@@ -113,17 +113,21 @@
         <input type="number" value="${r.id}" class="center2_2divinput1"><br><br>
         <label class="center2_2divlab3">食堂名:</label>
         <input type="text" value="${r.name}" class="center2_2divinput2"><br><br>
+        <label class="center2_2divlab3">食堂介绍:</label>
+        <input type="text" value="${r.introduction}" class="center2_2divinput3"><br><br>
+        <label class="center2_2divlab3">食堂图片地址:</label>
+        <input type="text" value="${r.cover}" class="center2_2divinput4"><br><br>
         <label class="center2_2divlab4">食堂地点:</label>
-        <input type="text" value="${r.location}" class="center2_2divinput3"><br><br>
+        <input type="text" value="${r.location}" class="center2_2divinput5"><br><br>
         <label class="center2_2divlab5">食堂经营时间:</label>
-        <input type="text" value="${r.time}" class="center2_2divinput4"><br><br><br>
+        <input type="text" value="${r.time}" class="center2_2divinput6"><br><br><br>
         <button class="center2_2divbutton2" onclick="updatediv2Yes(<%=j%>)">确认修改</button>
     </div>
     <div class="center2_3div">
         <button class="center2_3divbutton1" onclick="deletediv2Close(<%=j%>)">X</button><br>
         <label class="center2_3divlab1">删除食堂信息</label><br><br><br>
         <label class="center2_3divlab2">此操作不可逆，是否确认删除该食堂？</label><br><br><br>
-        <button class="center2_3divbutton2" onclick="deletediv2Yes(<%=j%>)">确认删除</button>
+        <button class="center2_3divbutton2" onclick="deletediv2Yes(${r.id},<%=j%>)">确认删除</button>
     </div>
     <%j++;%>
 </c:forEach>
