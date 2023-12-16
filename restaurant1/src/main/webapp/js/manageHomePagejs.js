@@ -38,18 +38,19 @@ function createXMLHttpRequest() {
     }
 }
 function updatediv1On(index){
+    alert("hit");
     var updatedivs=document.getElementsByClassName("center1_2div");
-    updatedivs[index].style.direction="block";
+    updatedivs[index].style.display="block";
 }
 function updatediv1Close(index){
     var updatedivs=document.getElementsByClassName("center1_2div");
-    updatedivs[index].style.direction="none";
+    updatedivs[index].style.display="none";
 }
 function updatediv1Yes(index){
-    var id=document.getElementById("center1_1divinput1")[index].value;
-    var username=document.getElementById("center1_1divinput2")[index].value;
-    var password=document.getElementById("center1_1divinput3")[index].value;
-    var restaurant=document.getElementById("center1_1divinput4")[index].value;
+    var id=document.getElementsByClassName("center1_2divinput1")[index].value;
+    var username=document.getElementsByClassName("center1_2divinput2")[index].value;
+    var password=document.getElementsByClassName("center1_2divinput3")[index].value;
+    var restaurant=document.getElementsByClassName("center1_2divinput4")[index].value;
     var params ="id=" + encodeURIComponent(id)+"&username="+encodeURIComponent(username)+"&password="+encodeURIComponent(password)+"&restaurant="+encodeURIComponent(restaurant);
     createXMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
@@ -72,11 +73,11 @@ function updatediv1Yes(index){
 
 function deletediv1On(index){
     var updatedivs=document.getElementsByClassName("center1_3div");
-    updatedivs[index].style.direction="block";
+    updatedivs[index].style.display="block";
 }
 function deletediv1Close(index){
     var updatedivs=document.getElementsByClassName("center1_3div");
-    updatedivs[index].style.direction="block";
+    updatedivs[index].style.display="block";
 }
 function deletediv1Yes(id,index){
     var params ="id=" + encodeURIComponent(id);
@@ -99,7 +100,10 @@ function deletediv1Yes(id,index){
     xmlHttp.send(params);
 }
 
-
+ function adddiv1On(){
+    alert("hit");
+    document.getElementById("center1_1div").style.display="block";
+}
 function adddiv1Close(){
     var div=document.getElementById("center1_1div");
     div.style.display="none";
@@ -132,19 +136,19 @@ function adddiv1Yes(){
 
 function updatediv2On(index){
     var updatedivs=document.getElementsByClassName("center2_2div");
-    updatedivs[index].style.direction="block";
+    updatedivs[index].style.display="block";
 }
 function updatediv2Close(index){
     var updatedivs=document.getElementsByClassName("center2_2div");
-    updatedivs[index].style.direction="none";
+    updatedivs[index].style.display="none";
 }
 function updatediv2Yes(index){
-    var id=document.getElementById("center2_1divinput1")[index].value;
-    var name=document.getElementById("center2_1divinput2")[index].value;
-    var introduction=document.getElementById("center2_1divinput3").value;
-    var cover=document.getElementById("center2_1divinput4").value;
-    var location=document.getElementById("center2_1divinput5")[index].value;
-    var time=document.getElementById("center2_1divinput6")[index].value;
+    var id=document.getElementsByClassName("center2_2divinput1")[index].value;
+    var name=document.getElementsByClassName("center2_2divinput2")[index].value;
+    var introduction=document.getElementsByClassName("center2_2divinput3").value;
+    var cover=document.getElementsByClassName("center2_2divinput4").value;
+    var location=document.getElementsByClassName("center2_2divinput5")[index].value;
+    var time=document.getElementsByClassName("center2_2divinput6")[index].value;
     var params ="id=" + encodeURIComponent(id)+"&name=" + encodeURIComponent(name)+"&introduction=" + encodeURIComponent(introduction)+"&cover=" + encodeURIComponent(cover)+"&location=" + encodeURIComponent(location)+"&time=" + encodeURIComponent(time);
     createXMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
@@ -167,11 +171,11 @@ function updatediv2Yes(index){
 
 function deletediv2On(index){
     var updatedivs=document.getElementsByClassName("center2_3div");
-    updatedivs[index].style.direction="block";
+    updatedivs[index].style.display="block";
 }
 function deletediv2Close(index){
     var updatedivs=document.getElementsByClassName("center2_3div");
-    updatedivs[index].style.direction="block";
+    updatedivs[index].style.display="none";
 }
 function deletediv2Yes(id,index){
     var params ="id=" + encodeURIComponent(id);
@@ -231,11 +235,11 @@ function adddiv2Yes(){
 
 function updatediv3On(index){
     var updatedivs=document.getElementsByClassName("center3_2div");
-    updatedivs[index].style.direction="block";
+    updatedivs[index].style.display="block";
 }
 function updatediv3Close(index){
     var updatedivs=document.getElementsByClassName("center3_2div");
-    updatedivs[index].style.direction="none";
+    updatedivs[index].style.display="none";
 }
 function updatediv3Yes(index){
     var id=document.getElementsByClassName("center3_2divinput1")[index].value;
@@ -268,11 +272,11 @@ function updatediv3Yes(index){
 
 function deletediv3On(index){
     var updatedivs=document.getElementsByClassName("center3_3div");
-    updatedivs[index].style.direction="block";
+    updatedivs[index].style.display="block";
 }
 function deletediv3Close(index){
     var updatedivs=document.getElementsByClassName("center3_3div");
-    updatedivs[index].style.direction="block";
+    updatedivs[index].style.display="none";
 }
 function deletediv3Yes(id,index){
     var params ="id=" + encodeURIComponent(id);
