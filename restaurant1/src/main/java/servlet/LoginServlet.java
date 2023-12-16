@@ -1,8 +1,6 @@
 package servlet;
 
-import Pojo.RestaurantInfo;
-import Pojo.User;
-import Pojo.restaurantAdmin;
+import Pojo.*;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -10,12 +8,15 @@ import service.User.UserService;
 import service.User.UserServiceImpl;
 import service.dish.DishService;
 import service.dish.DishServiceImpl;
+import service.manage.MySQLJDBC;
 import service.restaurant.RestaurantService;
 import service.restaurant.RestaurantServiceImpl;
 import service.restaurantAdmin.restaurantAdminService;
 import service.restaurantAdmin.restaurantAdminServiceImpl;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "LoginServlet", value = "/LoginServlet")
@@ -52,7 +53,21 @@ public class LoginServlet extends HttpServlet {
             if(userCode.equals("admin") && userPassword.equals("admin")){
                 //系统管理员端登录成功
                 //页面重定向至系统管理员首页
-                response.sendRedirect("");
+                ArrayList<RestaurantManage> rms;
+                ArrayList<RestaurantInfo> rs;
+                ArrayList<Evaluate> es;
+                try {
+                    rms=MySQLJDBC.searchResturantManage();
+                    rs=MySQLJDBC.searchResturant();
+                    es=MySQLJDBC.searchEvaluate();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                request.setAttribute("rms",rms);
+                request.setAttribute("rs",rs);
+                request.setAttribute("es",es);
+                RequestDispatcher rd=request.getRequestDispatcher("/manageHomePage.jsp");
+                rd.forward(request,response);
             }
         }
         else{
