@@ -5,7 +5,7 @@
   Time: 15:40
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -69,6 +69,19 @@
     <% i++;%>
 </c:forEach>
 </div>
+<div id="center1_1div">
+    <button id="center1_1divbutton1" onclick="adddiv1Close()">X</button><br>
+    <label id="center1_1divlab1">添加食堂管理员</label><br><br>
+    <label id="center1_1divlab2">食堂管理员id:</label>
+    <input type="number" id="center1_1divinput1"><br><br>
+    <label id="center1_1divlab3">食堂管理员用户名:</label>
+    <input type="text" id="center1_1divinput2"><br><br>
+    <label id="center1_1divlab4">食堂管理员密码:</label>
+    <input type="text" id="center1_1divinput3"><br><br>
+    <label id="center1_1divlab5">食堂管理员所属餐厅:</label>
+    <input type="text" id="center1_1divinput4"><br><br><br>
+    <button id="center1_1divbutton2" onclick="adddiv1Yes()">确认添加</button>
+</div>
 <div id="center2div">
     <label class="centerdivlab">食堂信息列表</label><br>
     <button class="centerdivbutton" onclick="adddiv2On()">添加食堂信息</button><br>
@@ -115,6 +128,23 @@
     <%j++;%>
 </c:forEach>
 </div>
+<div id="center2_1div">
+    <button id="center2_1divbutton1" onclick="adddiv2Close()">X</button><br>
+    <label id="center2_1divlab1">添加食堂信息</label><br><br>
+    <label id="center2_1divlab2">食堂id:</label>
+    <input type="number" id="center2_1divinput1"><br><br>
+    <label id="center2_1divlab3">食堂名:</label>
+    <input type="text" id="center2_1divinput2"><br><br>
+    <label id="center2_1divlab4">食堂介绍:</label>
+    <input type="text" id="center2_1divinput3"><br><br>
+    <label id="center2_1divlab5">食堂图片地址:</label>
+    <input type="text" id="center2_1divinput4"><br><br>
+    <label id="center2_1divlab6">食堂地点:</label>
+    <input type="text" id="center2_1divinput5"><br><br>
+    <label id="center2_1divlab7">食堂经营时间:</label>
+    <input type="text" id="center2_1divinput6"><br><br><br>
+    <button id="center2_1divbutton2" onclick="adddiv2Yes()">确认添加</button>
+</div>
 <div id="center3div">
     <label class="centerdivlab">评价信息列表</label><br>
     <div id="center3divtop">
@@ -152,7 +182,7 @@
         <label class="center3_2divlab5">发送者:</label>
         <input type="text" value="${e.sender}" class="center3_2divinput4"><br><br>
         <label class="center3_2divlab6">评价食堂:</label>
-        <input type="text" value="${e.restuarant}" class="center3_2divinput5"><br><br>
+        <input type="text" value="${e.restaurant}" class="center3_2divinput5"><br><br>
         <label class="center3_2divlab7">评价食物:</label>
         <input type="text" value="${e.food}" class="center3_2divinput6"><br><br>
         <label class="center3_2divlab8">接收者:</label>
@@ -168,41 +198,6 @@
     <%k++;%>
 </c:forEach>
 </div>
-<div id="center1_1div">
-    <button id="center1_1divbutton1" onclick="adddiv1Close()">X</button><br>
-    <label id="center1_1divlab1">添加食堂管理员</label><br><br>
-    <label id="center1_1divlab2">食堂管理员id:</label>
-    <input type="number" id="center1_1divinput1"><br><br>
-    <label id="center1_1divlab3">食堂管理员用户名:</label>
-    <input type="text" id="center1_1divinput2"><br><br>
-    <label id="center1_1divlab4">食堂管理员密码:</label>
-    <input type="text" id="center1_1divinput3"><br><br>
-    <label id="center1_1divlab5">食堂管理员所属餐厅:</label>
-    <input type="text" id="center1_1divinput4"><br><br><br>
-    <button id="center1_1divbutton2" onclick="adddiv1Yes()">确认添加</button>
-</div>
-<div id="center2_1div">
-    <button id="center2_1divbutton1" onclick="adddiv2Close()">X</button><br>
-    <label id="center2_1divlab1">添加食堂信息</label><br><br>
-    <label id="center2_1divlab2">食堂id:</label>
-    <input type="number" id="center2_1divinput1"><br><br>
-    <label id="center2_1divlab3">食堂名:</label>
-    <input type="text" id="center2_1divinput2"><br><br>
-    <label id="center2_1divlab4">食堂介绍:</label>
-    <input type="text" id="center2_1divinput3"><br><br>
-    <label id="center2_1divlab5">食堂图片地址:</label>
-    <input type="text" id="center2_1divinput4"><br><br>
-    <label id="center2_1divlab6">食堂地点:</label>
-    <input type="text" id="center2_1divinput5"><br><br>
-    <label id="center2_1divlab7">食堂经营时间:</label>
-    <input type="text" id="center2_1divinput6"><br><br><br>
-    <button id="center2_1divbutton2" onclick="adddiv2Yes()">确认添加</button>
-</div>
-<script>
-    function adddiv1On(){
-        alert("hit");
 
-    }
-</script>
 </body>
 </html>
