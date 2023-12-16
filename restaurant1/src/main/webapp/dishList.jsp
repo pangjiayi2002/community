@@ -68,7 +68,8 @@
 <body>
 <%
   restaurantAdminService resAdminSer=new restaurantAdminServiceImpl();
-  List<Dish> dishes = resAdminSer.getAllDish();
+  String restaurantName= (String) session.getAttribute("restaurantName");
+  List<Dish> dishes = resAdminSer.getAllDish(restaurantName);
 %>
 <div class="container">
   <div class="row">

@@ -26,6 +26,9 @@
     </style>
 </head>
 <body>
+<%
+    String restaurantName= (String) session.getAttribute("restaurantName");
+%>
 <div class="container">
     <h2>添加菜品</h2>
     <form role="form" action="${pageContext.request.contextPath}/DishAddServlet" method="post">
@@ -47,7 +50,7 @@
         </div>
         <div class="form-group">
             <label for="restaurantName">供应的食堂</label>
-            <input class="form-control" id="restaurantName" name="restaurantName">
+            <input class="form-control" id="restaurantName" name="restaurantName" value="<%=restaurantName%>">
         </div>
         <button type="submit" id="addButton" class="btn btn-primary">提交</button>
         <a href="dishList.jsp" class="btn btn-default">取消</a>

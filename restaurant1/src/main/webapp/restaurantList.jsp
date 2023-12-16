@@ -30,7 +30,11 @@
 <body>
 <%
     restaurantAdminService resAdminSer=new restaurantAdminServiceImpl();
-    List<RestaurantInfo> infos = resAdminSer.getAll();
+    HttpSession session1=request.getSession();
+    String username= session1.getAttribute("username").toString();
+    String RestaurantName= resAdminSer.getRestaurantName(username);
+    session1.setAttribute("RestaurantName",RestaurantName);
+    List<RestaurantInfo> infos = resAdminSer.getRestaurant(RestaurantName);
 %>
 <div class="container">
     <div class="row">

@@ -46,6 +46,27 @@ public class restaurantAdminDaoImpl implements restaurantAdminDao{
     }
 
     @Override
+    public String getRestaurantName(Connection connection, String username) throws Exception {
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        String name=null;
+        try {
+            if (null != connection) {
+                String sql = "select resturant from restaurant.restaurantadmin where username=?";
+                Object[] params = {username};
+                rs = BaseDao.execute(connection, pstm, rs, sql, params);
+                if (rs.next()) {
+                    name=rs.getString("resturant");
+                }
+            }
+            BaseDao.closeResource(null, pstm, rs);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return name;
+    }
+
+    @Override
     public RestaurantInfo getInfoById(Connection connection, String id) throws Exception {
         RestaurantInfo info = null;
         PreparedStatement pstm = null;
@@ -69,15 +90,14 @@ public class restaurantAdminDaoImpl implements restaurantAdminDao{
     }
 
     @Override
-    public List<RestaurantInfo> getAll(Connection connection) throws Exception {
+    public List<RestaurantInfo> getRestaurant(Connection connection,String restaurantName) throws Exception {
         PreparedStatement pstm=null;
         ResultSet rs=null;
         ArrayList<RestaurantInfo> List=new ArrayList<>();
         if(null!=connection){
-            List<Object> InfoList=new ArrayList<>();
-            String sql="select * from restaurant.restaurantInfo";
-            Object[] params=InfoList.toArray();
-            rs= BaseDao.execute(connection,pstm,rs,sql,params);
+            String sql="select * from restaurant.restaurantInfo where name=?";
+            Object[] params = {restaurantName};
+            rs = BaseDao.execute(connection, pstm, rs, sql, params);
             while(rs.next()){
                 int id=rs.getInt("id");
                 String name=rs.getString("name");
@@ -130,14 +150,13 @@ public class restaurantAdminDaoImpl implements restaurantAdminDao{
     }
 
     @Override
-    public List<Dish> getAllDish(Connection connection) throws Exception {
+    public List<Dish> getAllDish(Connection connection,String restaurantName) throws Exception {
         PreparedStatement pstm=null;
         ResultSet rs=null;
         ArrayList<Dish> List=new ArrayList<>();
         if(null!=connection){
-            List<Object> DishList=new ArrayList<>();
-            String sql="select * from restaurant.dish";
-            Object[] params=DishList.toArray();
+            String sql="select * from restaurant.dish where restaurantName=?";
+            Object[] params = {restaurantName};
             rs= BaseDao.execute(connection,pstm,rs,sql,params);
             while(rs.next()){
                 int id=rs.getInt("id");
@@ -145,8 +164,8 @@ public class restaurantAdminDaoImpl implements restaurantAdminDao{
                 String foodtype=rs.getString("foodtype");
                 Float price=rs.getFloat("price");
                 String cover=rs.getString("cover");
-                String restaurantName=rs.getString("restaurantName");
-                Dish dish=new Dish(id,name,foodtype,price,cover,restaurantName);
+                String RestaurantName=rs.getString("restaurantName");
+                Dish dish=new Dish(id,name,foodtype,price,cover,RestaurantName);
                 List.add(dish);
             }
             BaseDao.closeResource(null,pstm,rs);

@@ -36,13 +36,24 @@ public class LoginServlet extends HttpServlet {
         String userType=request.getParameter("userType");
         String userCode=request.getParameter("userCode");
         String userPassword=request.getParameter("userPassword");
+        HttpSession session=request.getSession();
+        session.setAttribute("userRole",userType);
         //调用service方法，进行用户匹配
         if(userType!=null && userType.equals("restaurantAdmin")){
             restaurantAdmin resAdmin=resAdminService.login(userCode,userPassword);
                 if(null !=resAdmin){
+                    String RestaurantName= null;
+                    try {
+                        RestaurantName = resAdminService.getRestaurantName(userCode);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                    session.setAttribute("restaurantName",RestaurantName);
+                    session.setAttribute("username",userCode);
+                    System.out.println(RestaurantName);
                     //登陆成功
                     //页面重定向至食堂管理员首页
-                    response.sendRedirect("");
+                    response.sendRedirect("restaurantAdminHome.jsp");
                 }else{
                     //页面转发，携带提示信息至登录界面
                     request.setAttribute("error","用户名或密码不正确");
@@ -69,10 +80,16 @@ public class LoginServlet extends HttpServlet {
                 RequestDispatcher rd=request.getRequestDispatcher("/manageHomePage.jsp");
                 rd.forward(request,response);
             }
+            else{
+                //页面转发，携带提示信息至登录界面
+                request.setAttribute("error","用户名或密码不正确");
+                request.getRequestDispatcher("adminLogin.jsp").forward(request,response);
+            }
         }
         else{
             //师生端
             User user=userService.login(userCode,userPassword);
+            session.setAttribute("userRole","user");
             if(null!=user){
                 //食堂列表存在context中
                 List<RestaurantInfo> RestaurantList=restaurantService.getRestaurantList();

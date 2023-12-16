@@ -19,15 +19,17 @@ public interface restaurantAdminDao {
      */
     restaurantAdmin getLoginRestaurantAdmin(Connection connection, String username) throws Exception;
 
+    //得到当前登录的食堂管理员管理的食堂
+    String getRestaurantName(Connection connection,String username) throws Exception;
     RestaurantInfo getInfoById(Connection connection, String id) throws Exception;
     //获取食堂信息
-    List<RestaurantInfo> getAll(Connection connection)throws Exception;
+    List<RestaurantInfo> getRestaurant(Connection connection,String restaurantName)throws Exception;
     //修改食堂信息
     int modify(Connection connection, RestaurantInfo restaurantInfo) throws Exception;
 
     Dish getDishById(Connection connection, String id) throws Exception;
     //获取菜品信息
-    List<Dish> getAllDish(Connection connection)throws Exception;
+    List<Dish> getAllDish(Connection connection,String restaurantName)throws Exception;
     //修改菜品信息
     int modifyDish(Connection connection, Dish dish) throws Exception;
     //添加菜品
