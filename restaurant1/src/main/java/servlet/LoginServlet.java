@@ -69,6 +69,11 @@ public class LoginServlet extends HttpServlet {
                 RequestDispatcher rd=request.getRequestDispatcher("/manageHomePage.jsp");
                 rd.forward(request,response);
             }
+            else{
+                //页面转发，携带提示信息至登录界面
+                request.setAttribute("error","用户名或密码不正确");
+                request.getRequestDispatcher("adminLogin.jsp").forward(request,response);
+            }
         }
         else{
             //师生端

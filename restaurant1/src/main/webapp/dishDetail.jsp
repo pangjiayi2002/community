@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: a
@@ -32,6 +33,9 @@
 </div>
 <div id="comment" style="">
     <h2>评价：</h2>
+    <c:forEach var="evaluate" items="${sessionScope.evaluateList}">
+
+    </c:forEach>
 </div>
 </body>
 </html>
