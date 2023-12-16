@@ -8,8 +8,24 @@
 <head>
     <title>食堂管理员管理的食堂列表</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #f5f5f5; /* 设置页面背景颜色 */
+        }
+        .container {
+            background-color: #fff; /* 设置容器背景颜色 */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .page-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #fanhui {
+            margin-top: 10px; /* 调整按钮与标题的垂直间距 */
+        }
+    </style>
 </head>
 <body>
 <%
@@ -17,7 +33,14 @@
     List<RestaurantInfo> infos = resAdminSer.getAll();
 %>
 <div class="container">
-    <h1>食堂信息维护</h1>
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class="page-title">食堂信息维护</h1>
+        </div>
+        <div class="col-md-4 text-right">
+            <a class="btn btn-primary" id="fanhui" href="restaurantAdminHome.jsp">返回首页</a>
+        </div>
+    </div>
     <table class="table table-striped">
         <thead>
         <tr>

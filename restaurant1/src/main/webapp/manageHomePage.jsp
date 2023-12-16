@@ -12,8 +12,8 @@
 <head>
     <meta charset="UTF-8">
     <title>管理员界面</title>
-    <link rel="stylesheet" href="../css/manageHomePagecss.css">
-    <script src="../js/manageHomePagejs.js"></script>
+    <link rel="stylesheet" href="./css/manageHomePagecss.css">
+    <script src="./js/manageHomePagejs.js"></script>
 </head>
 <body>
 <div id="topdiv">
@@ -21,7 +21,6 @@
     <form action="LogoutServlet" method="post">
         <button id="topdivbutton" type="submit">退出</button>
     </form>
-
 </div>
 <div id="centerdiv">
     <button id="centerdivbutton1" onclick="onclickbutton(1)">食堂管理员账号管理</button>
@@ -38,18 +37,18 @@
         <label id="center1divtoplab4">restaurant</label>
         <label id="center1divtoplab5">操作</label>
     </div>
-    <c:set var="i" value="0" />
+    <%int i=0; %>
 <c:forEach var="rm" items="${requestScope.rms}" varStatus="status">
     <div class="center1divc">
         <label class="center1divclab1">${rm.id}</label>
         <label class="center1divclab2">${rm.username}</label>
         <label class="center1divclab3">${rm.password}</label>
         <label class="center1divclab4">${rm.restaurant}</label>
-        <button class="center1divcbutton1" onclick="updatediv1On(${i})">编辑</button>
-        <button class="center1divcbutton2" onclick="deletediv1On(${i})">删除</button>
+        <button class="center1divcbutton1" onclick="updatediv1On(<%=i%>)">编辑</button>
+        <button class="center1divcbutton2" onclick="deletediv1On(<%=i%>)">删除</button>
     </div>
     <div class="center1_2div">
-        <button class="center1_2divbutton1" onclick="updatediv1Close(${i})">X</button><br>
+        <button class="center1_2divbutton1" onclick="updatediv1Close(<%=i%>)">X</button><br>
         <label class="center1_2divlab1">修改食堂管理员信息</label><br><br>
         <label class="center1_2divlab2">食堂管理员id:</label>
         <input type="number" value="${rm.id}" class="center1_2divinput1"><br><br>
@@ -59,15 +58,15 @@
         <input type="text" value="${rm.password}" class="center1_2divinput3"><br><br>
         <label class="center1_2divlab5">食堂管理员所属餐厅:</label>
         <input type="text" value="${rm.restaurant}" class="center1_2divinput4"><br><br><br>
-        <button class="center1_2divbutton2" onclick="updatediv1Yes(${i})">确认修改</button>
+        <button class="center1_2divbutton2" onclick="updatediv1Yes(<%=i%>)">确认修改</button>
     </div>
     <div class="center1_3div">
-        <button class="center1_3divbutton1" onclick="deletediv1Close(${i})">X</button><br>
+        <button class="center1_3divbutton1" onclick="deletediv1Close(<%=i%>)">X</button><br>
         <label class="center1_3divlab1">删除食堂管理员信息</label><br><br><br>
         <label class="center1_3divlab2">此操作不可逆，是否确认删除该食堂管理员？</label><br><br><br>
-        <button class="center1_3divbutton2" onclick="deletediv1Yes(${rm.id},${i})">确认删除</button>
+        <button class="center1_3divbutton2" onclick="deletediv1Yes(${rm.id},<%=i%>)">确认删除</button>
     </div>
-    <c: @i=@i+1 />
+    <% i++;%>
 </c:forEach>
 </div>
 <div id="center2div">
@@ -82,7 +81,7 @@
         <label id="center2divtoplab6">time</label>
         <label id="center2divtoplab7">操作</label>
     </div>
-<c:set var="j" value="0" />
+<%int j=0;%>
 <c:forEach var="r" items="${requestScope.rs}" varStatus="status">
     <div class="center2divc">
         <label class="center2divclab1">${r.id}</label>
@@ -91,11 +90,11 @@
         <label class="center2divclab4">${r.cover}</label>
         <label class="center2divclab5">${r.location}</label>
         <label class="center2divclab6">${r.time}</label>
-        <button class="center2divcbutton1" onclick="updatediv2On(${j})">编辑</button>
-        <button class="center2divcbutton2" onclick="deletediv2On(${j})">删除</button>
+        <button class="center2divcbutton1" onclick="updatediv2On(<%=j%>)">编辑</button>
+        <button class="center2divcbutton2" onclick="deletediv2On(<%=j%>)">删除</button>
     </div>
     <div class="center2_2div">
-        <button class="center2_2divbutton1" onclick="updatediv2Close(${j})">X</button><br>
+        <button class="center2_2divbutton1" onclick="updatediv2Close(<%=j%>)">X</button><br>
         <label class="center2_2divlab1">修改食堂信息</label><br><br>
         <label class="center2_2divlab2">食堂id:</label>
         <input type="number" value="${r.id}" class="center2_2divinput1"><br><br>
@@ -105,15 +104,15 @@
         <input type="text" value="${r.location}" class="center2_2divinput3"><br><br>
         <label class="center2_2divlab5">食堂经营时间:</label>
         <input type="text" value="${r.time}" class="center2_2divinput4"><br><br><br>
-        <button class="center2_2divbutton2" onclick="updatediv2Yes(${j})">确认修改</button>
+        <button class="center2_2divbutton2" onclick="updatediv2Yes(<%=j%>)">确认修改</button>
     </div>
     <div class="center2_3div">
-        <button class="center2_3divbutton1" onclick="deletediv2Close(${j})">X</button><br>
+        <button class="center2_3divbutton1" onclick="deletediv2Close(<%=j%>)">X</button><br>
         <label class="center2_3divlab1">删除食堂信息</label><br><br><br>
         <label class="center2_3divlab2">此操作不可逆，是否确认删除该食堂？</label><br><br><br>
-        <button class="center2_3divbutton2" onclick="deletediv2Yes(${j})">确认删除</button>
+        <button class="center2_3divbutton2" onclick="deletediv2Yes(<%=j%>)">确认删除</button>
     </div>
-    <c: @j=@j+1 />
+    <%j++;%>
 </c:forEach>
 </div>
 <div id="center3div">
@@ -128,21 +127,21 @@
         <label id="center3divtoplab7">receiver</label>
         <label id="center3divtoplab8">操作</label>
     </div>
-<c:set var="k" value="0" />
+<%int k=0;%>
 <c:forEach var="e" items="${requestScope.es}" varStatus="status">
     <div class="center3divc">
         <label class="center3divclab1">${e.id}</label>
         <label class="center3divclab2">${e.title}</label>
         <label class="center3divclab3">${e.content}</label>
         <label class="center3divclab4">${e.sender}</label>
-        <label class="center3divclab5">${e.restuarant}</label>
+        <label class="center3divclab5">${e.restaurant}</label>
         <label class="center3divclab6">${e.food}</label>
         <label class="center3divclab7">${e.receiver}</label>
-        <button class="center3divcbutton1" onclick="updatediv3On(${k})">编辑</button>
-        <button class="center3divcbutton2" onclick="deletediv3On(${k})">删除</button>
+        <button class="center3divcbutton1" onclick="updatediv3On(<%=k%>)">编辑</button>
+        <button class="center3divcbutton2" onclick="deletediv3On(<%=k%>)">删除</button>
     </div>
     <div class="center3_2div">
-        <button class="center3_2divbutton1" onclick="updatediv3Close(${k})">X</button><br>
+        <button class="center3_2divbutton1" onclick="updatediv3Close(<%=k%>)">X</button><br>
         <label class="center3_2divlab1">修改评价信息</label><br><br>
         <label class="center3_2divlab2">评价id:</label>
         <input type="number" value="${e.id}" class="center3_2divinput1"><br><br>
@@ -158,15 +157,15 @@
         <input type="text" value="${e.food}" class="center3_2divinput6"><br><br>
         <label class="center3_2divlab8">接收者:</label>
         <input type="text" value="${e.receiver}" class="center3_2divinput7"><br><br>
-        <button class="center3_2divbutton2" onclick="updatediv3Yes(${k})">确认修改</button>
+        <button class="center3_2divbutton2" onclick="updatediv3Yes(<%=k%>)">确认修改</button>
     </div>
     <div class="center3_3div">
-        <button class="center3_3divbutton1" onclick="deletediv3Close(${k})">X</button><br>
+        <button class="center3_3divbutton1" onclick="deletediv3Close(<%=k%>)">X</button><br>
         <label class="center3_3divlab1">删除评价信息</label><br><br><br>
         <label class="center3_3divlab2">此操作不可逆，是否确认删除该食堂？</label><br><br><br>
-        <button class="center3_3divbutton2" onclick="deletediv3Yes(${e.id},${k})">确认删除</button>
+        <button class="center3_3divbutton2" onclick="deletediv3Yes(${e.id},<%=k%>)">确认删除</button>
     </div>
-    <c: @k=@k+1 />
+    <%k++;%>
 </c:forEach>
 </div>
 <div id="center1_1div">
@@ -199,5 +198,11 @@
     <input type="text" id="center2_1divinput6"><br><br><br>
     <button id="center2_1divbutton2" onclick="adddiv2Yes()">确认添加</button>
 </div>
+<script>
+    function adddiv1On(){
+        alert("hit");
+
+    }
+</script>
 </body>
 </html>

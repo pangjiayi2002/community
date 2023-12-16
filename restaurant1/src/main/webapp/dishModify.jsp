@@ -32,7 +32,7 @@
         if (id != null && !id.isEmpty()) {
             restaurantAdminService resAdminSer=new restaurantAdminServiceImpl();
             Dish dish=resAdminSer.getDishById(id); %>
-    <h1>修改食堂信息</h1>
+    <h1>修改菜品信息</h1>
     <form role="form" action="${pageContext.request.contextPath}/DishModifyServlet" method="post" class="form-horizontal">
         <input type="hidden" name="id" value="<%=dish.getId()%>">
         <div class="form-group">
