@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
                 if(null !=resAdmin){
                     //登陆成功
                     //页面重定向至食堂管理员首页
-                    response.sendRedirect("");
+                    response.sendRedirect("restaurantAdminHome.jsp");
                 }else{
                     //页面转发，携带提示信息至登录界面
                     request.setAttribute("error","用户名或密码不正确");
