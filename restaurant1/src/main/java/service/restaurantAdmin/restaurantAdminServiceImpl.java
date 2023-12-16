@@ -63,18 +63,18 @@ public class restaurantAdminServiceImpl implements restaurantAdminService{
     }
 
     @Override
-    public List<RestaurantInfo> getAll() throws Exception {
+    public List<RestaurantInfo> getRestaurant(String name) throws Exception {
         Connection connection = null;
-        List<RestaurantInfo> NoticeList = null;
+        List<RestaurantInfo> RestaurantList = null;
         try {
             connection = BaseDao.getConnection();
-            NoticeList = resAdminDao.getAll(connection);
+            RestaurantList = resAdminDao.getRestaurant(connection,name);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             BaseDao.closeResource(connection, null, null);
         }
-        return NoticeList;
+        return RestaurantList;
     }
 
     @Override
@@ -91,6 +91,22 @@ public class restaurantAdminServiceImpl implements restaurantAdminService{
             BaseDao.closeResource(connection, null, null);
         }
         return flag;
+    }
+
+    @Override
+    public String getRestaurantName(String username) throws Exception {
+        Connection connection = null;
+        String name = null;
+        try {
+            connection = BaseDao.getConnection();
+            //通过业务层调用对应的具体数据库操作
+            name =resAdminDao.getRestaurantName(connection,username);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            BaseDao.closeResource(connection, null, null);
+        }
+        return name;
     }
 
     @Override
@@ -111,12 +127,12 @@ public class restaurantAdminServiceImpl implements restaurantAdminService{
     }
 
     @Override
-    public List<Dish> getAllDish() throws Exception {
+    public List<Dish> getAllDish(String restaurantName) throws Exception {
         Connection connection = null;
         List<Dish> dishList = null;
         try {
             connection = BaseDao.getConnection();
-            dishList = resAdminDao.getAllDish(connection);
+            dishList = resAdminDao.getAllDish(connection,restaurantName);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
