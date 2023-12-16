@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>菜品详情</title>
@@ -16,6 +18,8 @@
             clear: both; /* 清除浮动 */
         }
     </style>
+    <link rel="stylesheet" href="./css/dishDetail1.css">
+    <script src="./js/deshDetail1.js"></script>
 </head>
 <body>
 <h1>菜品详情</h1>
@@ -32,6 +36,13 @@
 </div>
 <div id="comment" style="">
     <h2>评价：</h2>
+    <c:forEach var="e" items="${requestScope.es}" varStatus="status">
+        <div class="centerdiv" onclick="searchOnclick(${e.id})">
+            <label class="centerdivlab1">${e.sender}:</label>
+            <label class="centerdivlab2">${e.title}</label><br><br>
+            <label class="centerdivlab2">${e.content}</label><br>
+        </div>
+    </c:forEach>
 </div>
 </body>
 </html>

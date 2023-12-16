@@ -1,0 +1,27 @@
+#centerdiv{
+    width: 1000px;
+    height: 300px;
+    border: 2px solid darkgray;
+    border-left: none;
+    border-right: none;
+    background-color: #3d4f1b;
+}
+.centerdiv{
+    width: 1300px;
+    height: 120px;
+    border: 2px solid darkgray;
+    border-left: none;
+    border-right: none;
+}
+.centerdivlab1{
+    font-size: 18px;
+}
+.centerdivlab2{
+    font-size: 20px;
+}
+.centerdivlab3{
+    font-size: 20px;
+}
+#lab1{
+    font-size: 25px;
+}
