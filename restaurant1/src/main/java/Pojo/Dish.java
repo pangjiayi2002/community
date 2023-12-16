@@ -21,7 +21,12 @@ public class Dish {
         this.restaurantName = restaurantName;
     }
 
-    public Dish(String name, String foodtype, Float price, String cover, String restaurantName) {
+    public Dish(String name, String foodtype, float price, String cover, String restaurantName) {
+        this.name = name;
+        this.foodtype = foodtype;
+        this.price = price;
+        this.cover = cover;
+        this.restaurantName = restaurantName;
     }
 
     public int getId() {

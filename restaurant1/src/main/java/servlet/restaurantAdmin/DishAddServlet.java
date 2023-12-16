@@ -26,11 +26,7 @@ public class DishAddServlet extends HttpServlet {
         String cover = "dish/" + request.getParameter("cover");
         String restaurantName = request.getParameter("restaurantName");
         // 检查菜品信息是否完整
-        if (name != null && !name.isEmpty() &&
-                foodtype != null && !foodtype.isEmpty() &&
-                priceStr != null && !priceStr.isEmpty() &&
-                cover != null && !cover.isEmpty() &&
-                restaurantName != null && !restaurantName.isEmpty()) {
+        if (name != null  && foodtype != null && priceStr != null && cover != null && restaurantName != null ) {
             try {
                 // 解析价格
                 Float price = Float.parseFloat(priceStr);

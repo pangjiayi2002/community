@@ -9,7 +9,7 @@
 <body>
 <h1>欢迎来到上海理工大学食堂点评交流社区！</h1>
 <div>
-    <img src="./images/logo.jpg" alt="none" width="90%">
+    <img src="images/logo.jpg" alt="none" width="90%">
 </div>
 <div class="fav_list" style="background-color: rgba(204,204,204,0.23)">
     <div data-v-357a65ed="" class="fav_list_box">

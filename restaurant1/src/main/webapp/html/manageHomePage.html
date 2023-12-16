@@ -19,6 +19,7 @@
     <button id="centerdivbutton2" onclick="onclickbutton(2)">食堂信息管理</button>
     <button id="centerdivbutton3" onclick="onclickbutton(3)">评价信息管理</button>
 </div>
+
 <div id="center1div">
     <label class="centerdivlab">食堂管理员账号列表</label><br>
     <button class="centerdivbutton" onclick="adddiv1On()">添加食堂管理员</button>
@@ -56,6 +57,19 @@
             <label class="center1_3divlab2">此操作不可逆，是否确认删除该食堂管理员？</label><br><br><br>
             <button class="center1_3divbutton2" onclick="deletediv1Yes(0,0)">确认删除</button>
         </div>
+</div>
+<div id="center1_1div">
+    <button id="center1_1divbutton1" onclick="adddiv1Close()">X</button><br>
+    <label id="center1_1divlab1">添加食堂管理员</label><br><br>
+    <label id="center1_1divlab2">食堂管理员id:</label>
+    <input type="number" id="center1_1divinput1"><br><br>
+    <label id="center1_1divlab3">食堂管理员用户名:</label>
+    <input type="text" id="center1_1divinput2"><br><br>
+    <label id="center1_1divlab4">食堂管理员密码:</label>
+    <input type="text" id="center1_1divinput3"><br><br>
+    <label id="center1_1divlab5">食堂管理员所属餐厅:</label>
+    <input type="text" id="center1_1divinput4"><br><br><br>
+    <button id="center1_1divbutton2" onclick="adddiv1Yes()">确认添加</button>
 </div>
 <div id="center2div">
     <label class="centerdivlab">食堂信息列表</label><br>
@@ -98,6 +112,23 @@
             <label class="center2_3divlab2">此操作不可逆，是否确认删除该食堂？</label><br><br><br>
             <button class="center2_3divbutton2" onclick="deletediv2Yes(${j})">确认删除</button>
         </div>
+</div>
+<div id="center2_1div">
+    <button id="center2_1divbutton1" onclick="adddiv2Close()">X</button><br>
+    <label id="center2_1divlab1">添加食堂信息</label><br><br>
+    <label id="center2_1divlab2">食堂id:</label>
+    <input type="number" id="center2_1divinput1"><br><br>
+    <label id="center2_1divlab3">食堂名:</label>
+    <input type="text" id="center2_1divinput2"><br><br>
+    <label id="center2_1divlab4">食堂介绍:</label>
+    <input type="text" id="center2_1divinput3"><br><br>
+    <label id="center2_1divlab5">食堂图片地址:</label>
+    <input type="text" id="center2_1divinput4"><br><br>
+    <label id="center2_1divlab6">食堂地点:</label>
+    <input type="text" id="center2_1divinput5"><br><br>
+    <label id="center2_1divlab7">食堂经营时间:</label>
+    <input type="text" id="center2_1divinput6"><br><br><br>
+    <button id="center2_1divbutton2" onclick="adddiv2Yes()">确认添加</button>
 </div>
 <div id="center3div">
     <label class="centerdivlab">评价信息列表</label><br>
@@ -149,35 +180,6 @@
         </div>
 
 </div>
-<div id="center1_1div">
-    <button id="center1_1divbutton1" onclick="adddiv1Close()">X</button><br>
-    <label id="center1_1divlab1">添加食堂管理员</label><br><br>
-    <label id="center1_1divlab2">食堂管理员id:</label>
-    <input type="number" id="center1_1divinput1"><br><br>
-    <label id="center1_1divlab3">食堂管理员用户名:</label>
-    <input type="text" id="center1_1divinput2"><br><br>
-    <label id="center1_1divlab4">食堂管理员密码:</label>
-    <input type="text" id="center1_1divinput3"><br><br>
-    <label id="center1_1divlab5">食堂管理员所属餐厅:</label>
-    <input type="text" id="center1_1divinput4"><br><br><br>
-    <button id="center1_1divbutton2" onclick="adddiv1Yes()">确认添加</button>
-</div>
-<div id="center2_1div">
-    <button id="center2_1divbutton1" onclick="adddiv2Close()">X</button><br>
-    <label id="center2_1divlab1">添加食堂信息</label><br><br>
-    <label id="center2_1divlab2">食堂id:</label>
-    <input type="number" id="center2_1divinput1"><br><br>
-    <label id="center2_1divlab3">食堂名:</label>
-    <input type="text" id="center2_1divinput2"><br><br>
-    <label id="center2_1divlab4">食堂介绍:</label>
-    <input type="text" id="center2_1divinput3"><br><br>
-    <label id="center2_1divlab5">食堂图片地址:</label>
-    <input type="text" id="center2_1divinput4"><br><br>
-    <label id="center2_1divlab6">食堂地点:</label>
-    <input type="text" id="center2_1divinput5"><br><br>
-    <label id="center2_1divlab7">食堂经营时间:</label>
-    <input type="text" id="center2_1divinput6"><br><br><br>
-    <button id="center2_1divbutton2" onclick="adddiv2Yes()">确认添加</button>
-</div>
+
 </body>
 </html>
