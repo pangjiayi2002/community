@@ -175,5 +175,59 @@ public class MySQLJDBC {
         return 0;
     }
 
+    //食堂查看所有用户的评价
+    public static ArrayList<Evaluate> searchEvaluateAlluser() throws SQLException {
+        ArrayList<Evaluate> es=new ArrayList<>();
+        Connection connection=MySQLConnection.getConnection();
+        Statement statement=connection.createStatement();
+        ResultSet resultSet;
+        String sql="select * from `evaluate` where sendertype='user';";
+        resultSet=statement.executeQuery(sql);
+        while (resultSet.next()){
+            int id=resultSet.getInt("id");
+            String title=resultSet.getString("title");
+            String content=resultSet.getString("content");
+            String sender=resultSet.getString("sender");
+            String sendertype=resultSet.getString("sendertype");
+            String restaurant=resultSet.getString("restaurant");
+            String food=resultSet.getString("food");
+            String receiver=resultSet.getString("receiver");
+            int isread=resultSet.getInt("isread");
+            Evaluate e=new Evaluate(id,title,content,sender,sendertype,restaurant,food,receiver,isread);
+            es.add(e);
+        }
+        resultSet.close();
+        statement.close();
+        connection.close();
+        return es;
+    }
+
+    //食堂点击某个用户评价显示食堂管理员的回复
+    public static Evaluate searchEvaluateManager(int idd) throws SQLException {
+        Evaluate e=new Evaluate();
+        Connection connection=MySQLConnection.getConnection();
+        Statement statement=connection.createStatement();
+        ResultSet resultSet;
+        String sql="select * from `evaluate` where evaluateID="+idd+";";
+        resultSet=statement.executeQuery(sql);
+        while (resultSet.next()){
+            int id=resultSet.getInt("id");
+            String title=resultSet.getString("title");
+            String content=resultSet.getString("content");
+            String sender=resultSet.getString("sender");
+            String sendertype=resultSet.getString("sendertype");
+            String restaurant=resultSet.getString("restaurant");
+            String food=resultSet.getString("food");
+            String receiver=resultSet.getString("receiver");
+            int isread=resultSet.getInt("isread");
+            Evaluate ee=new Evaluate(id,title,content,sender,sendertype,restaurant,food,receiver,isread);
+            e=ee;
+        }
+        resultSet.close();
+        statement.close();
+        connection.close();
+        return e;
+    }
+
 
 }

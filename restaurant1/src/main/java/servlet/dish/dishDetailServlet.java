@@ -7,29 +7,28 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import service.dish.DishService;
 import service.dish.DishServiceImpl;
-import service.evaluate.EvaluateService;
-import service.evaluate.EvaluateServiceImpl;
+import service.manage.MySQLJDBC;
 
 import java.io.IOException;
-import java.util.List;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 @WebServlet(name = "dishDetailServlet", value = "/dishDetailServlet")
 public class dishDetailServlet extends HttpServlet {
     DishService dishService=new DishServiceImpl();
-    EvaluateService evaluateService=new EvaluateServiceImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String dishName=request.getParameter("dishName");
         Dish dish=dishService.getDishByName(dishName);
-        List<Evaluate> evaluateList=evaluateService.getEvaluateListByDishName(dishName);
         HttpSession session= request.getSession(true);
-        if(evaluateList==null){
-            String evaluateMessage="-该菜品还没有任何评价-";
-            session.setAttribute("evaluateMessage",evaluateMessage);
-        }else{
-            session.setAttribute("evaluateList",evaluateList);
-        }
         session.setAttribute("dish",dish);
+        ArrayList<Evaluate> es;
+        try {
+            es=MySQLJDBC.searchEvaluateAlluser();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        request.setAttribute("es",es);
         request.getRequestDispatcher("dishDetail.jsp").forward(request,response);
     }
 
