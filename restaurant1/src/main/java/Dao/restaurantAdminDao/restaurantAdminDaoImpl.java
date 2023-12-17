@@ -1,10 +1,7 @@
 package Dao.restaurantAdminDao;
 
 import Dao.BaseDao;
-import Pojo.Dish;
-import Pojo.Evaluate;
-import Pojo.RestaurantInfo;
-import Pojo.restaurantAdmin;
+import Pojo.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -239,14 +236,13 @@ public class restaurantAdminDaoImpl implements restaurantAdminDao{
     }
 
     @Override
-    public List<Evaluate> getAllEvaluate(Connection connection) throws Exception {
+    public List<Evaluate> getAllEvaluate(Connection connection,String restaurantName) throws Exception {
         PreparedStatement pstm=null;
         ResultSet rs=null;
         ArrayList<Evaluate> List=new ArrayList<>();
         if(null!=connection){
-            List<Object> EvaluateList=new ArrayList<>();
-            String sql="select * from restaurant.evaluate";
-            Object[] params=EvaluateList.toArray();
+            String sql="select * from restaurant.evaluate where restaurant=? and sendertype='user'";
+            Object[] params = {restaurantName};
             rs= BaseDao.execute(connection,pstm,rs,sql,params);
             while(rs.next()){
                 int id=rs.getInt("id");
@@ -267,14 +263,13 @@ public class restaurantAdminDaoImpl implements restaurantAdminDao{
     }
 
     @Override
-    public int notRead(Connection connection) throws Exception {
+    public int notRead(Connection connection,String restaurantName) throws Exception {
         PreparedStatement pstm=null;
         ResultSet rs=null;
         int count=0;
         if(null!=connection){
-            List<Object> EvaluateList=new ArrayList<>();
-            String sql="select isread from restaurant.evaluate";
-            Object[] params=EvaluateList.toArray();
+            String sql="select isread from restaurant.evaluate where restaurant=?n and sendertype='user'";
+            Object[] params={restaurantName};
             rs= BaseDao.execute(connection,pstm,rs,sql,params);
             while(rs.next()){
                 int isread=rs.getInt("isread");
@@ -285,5 +280,59 @@ public class restaurantAdminDaoImpl implements restaurantAdminDao{
             BaseDao.closeResource(null,pstm,rs);
         }
         return count;
+    }
+
+    @Override
+    public int modifyIsRead(Connection connection, String id) throws Exception {
+        int flag = 0;
+        PreparedStatement pstm = null;
+        if (null != connection) {
+            String sql = "update restaurant.evaluate set isread=0 where id = ? ";
+            Object[] params = {id};
+            flag = BaseDao.execute(connection, pstm, sql, params);
+            BaseDao.closeResource(null, pstm, null);
+        }
+        return flag;
+    }
+
+    @Override
+    public List<Reply> getReply(Connection connection, String id) throws Exception {
+        PreparedStatement pstm=null;
+        ResultSet rs=null;
+        ArrayList<Reply> List=new ArrayList<>();
+        if(null!=connection){
+            String sql="select * from restaurant.evaluate where evaluateID=?";
+            Object[] params = {id};
+            rs= BaseDao.execute(connection,pstm,rs,sql,params);
+            while(rs.next()){
+//                String title=rs.getString("title");
+                String content=rs.getString("content");
+                String sender=rs.getString("sender");
+//                String sendertype=rs.getString("sendertype");
+//                String restaurant=rs.getString("restaurant");
+//                String food=rs.getString("food");
+//                String receiver=rs.getString("receiver");
+//                int isread=rs.getInt("isread");
+//                Evaluate evaluate=new Evaluate(title,content,sender,sendertype,restaurant,food,receiver,isread);
+//                List.add(evaluate);
+                Reply reply=new Reply(content,sender);
+                List.add(reply);
+            }
+            BaseDao.closeResource(null,pstm,rs);
+        }
+        return List;
+    }
+
+    @Override
+    public int addReply(Connection connection, Evaluate evaluate) throws Exception {
+        PreparedStatement pstm = null;
+        int updateRows = 0;
+        if (null != connection) {
+            String sql = "insert into restaurant.evaluate (title,content,sender,sendertype,restaurant,food,receiver,isread,evaluateID) values(?,?,?,?,?,?,?,?,?)";
+            Object[] params = {evaluate.getTitle(),evaluate.getContent(),evaluate.getSender(),evaluate.getSendertype(),evaluate.getRestaurant(),evaluate.getFood(),evaluate.getReceiver(),evaluate.getIsread(),evaluate.getEvaluateID()};
+            updateRows = BaseDao.execute(connection, pstm, sql, params);
+            BaseDao.closeResource(null, pstm, null);
+        }
+        return updateRows;
     }
 }

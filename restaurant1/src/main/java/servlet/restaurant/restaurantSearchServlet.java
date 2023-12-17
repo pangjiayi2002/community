@@ -26,6 +26,7 @@ public class restaurantSearchServlet extends HttpServlet {
             request.getRequestDispatcher("restaurantInfoDisplay.jsp").forward(request,response);
         }else
         {
+            request.setAttribute("message","未找到该食堂的相关信息!");
             request.getRequestDispatcher("error.jsp").forward(request,response);
         }
     }
