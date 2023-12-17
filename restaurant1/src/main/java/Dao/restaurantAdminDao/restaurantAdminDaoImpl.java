@@ -268,7 +268,7 @@ public class restaurantAdminDaoImpl implements restaurantAdminDao{
         ResultSet rs=null;
         int count=0;
         if(null!=connection){
-            String sql="select isread from restaurant.evaluate where restaurant=?n and sendertype='user'";
+            String sql="select isread from restaurant.evaluate where restaurant=? and sendertype='user'";
             Object[] params={restaurantName};
             rs= BaseDao.execute(connection,pstm,rs,sql,params);
             while(rs.next()){

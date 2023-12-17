@@ -48,7 +48,6 @@
     restaurantAdminService resAdminSer=new restaurantAdminServiceImpl();
     String restaurantName= (String) session.getAttribute("restaurantName");
     List<Evaluate> evaluates=resAdminSer.getAllEvaluate(restaurantName);
-
 %>
 <div class="container">
     <div class="row">

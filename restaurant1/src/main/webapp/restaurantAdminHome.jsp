@@ -54,7 +54,6 @@
     restaurantAdminService resAdminSer=new restaurantAdminServiceImpl();
     String restaurantName= (String) session.getAttribute("restaurantName");
     int count=resAdminSer.notRead(restaurantName);
-    System.out.println(count);
 %>
 <div id="header">
     <h1>食堂管理员首页</h1>

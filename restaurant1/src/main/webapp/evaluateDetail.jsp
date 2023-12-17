@@ -52,13 +52,12 @@
   if (id != null && !id.isEmpty()) {
     restaurantAdminService resAdminSer = new restaurantAdminServiceImpl();
     Evaluate evaluate = resAdminSer.getEvaluateById(id);
+    resAdminSer.modifyIsRead(id);
     List<Reply> replies = resAdminSer.getReply(id);
     String food= evaluate.getFood();
     session1.setAttribute("food",food);
-//    request.setAttribute("food",food);
     String sender= evaluate.getSender();
     session1.setAttribute("receiver",sender);
-//    request.setAttribute("receiver",sender);
 %>
 <div class="container">
   <div class="card">
