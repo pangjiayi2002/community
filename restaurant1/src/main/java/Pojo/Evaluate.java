@@ -29,6 +29,18 @@ public class Evaluate implements java.io.Serializable{
         this.evaluateID=evaluateID;
     }
 
+    public Evaluate(String title, String content, String sender, String sendertype, String restaurant, String food, String receiver, int isread, int evaluateID) {
+        this.title = title;
+        this.content = content;
+        this.sender = sender;
+        this.sendertype = sendertype;
+        this.restaurant = restaurant;
+        this.food = food;
+        this.receiver = receiver;
+        this.isread = isread;
+        this.evaluateID = evaluateID;
+    }
+
     public int getId() {
         return id;
     }
@@ -100,10 +112,27 @@ public class Evaluate implements java.io.Serializable{
     public void setIsread(int isread) {
         this.isread = isread;
     }
-    public int getEvaluateID(){
+    public int getEvaluateID() {
         return evaluateID;
     }
-    public void setEvaluateID(int evaluateID){
-        this.evaluateID=evaluateID;
+
+    public void setEvaluateID(int evaluateID) {
+        this.evaluateID = evaluateID;
+    }
+
+    @Override
+    public String toString() {
+        return "Evaluate{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", sender='" + sender + '\'' +
+                ", sendertype='" + sendertype + '\'' +
+                ", restaurant='" + restaurant + '\'' +
+                ", food='" + food + '\'' +
+                ", receiver='" + receiver + '\'' +
+                ", isread=" + isread +
+                ", evaluateID=" + evaluateID +
+                '}';
     }
 }

@@ -50,7 +50,9 @@ public class LoginServlet extends HttpServlet {
                     }
                     session.setAttribute("restaurantName",RestaurantName);
                     session.setAttribute("username",userCode);
-                    System.out.println(RestaurantName);
+                    session.setAttribute("sender",userCode);
+                    session.setAttribute("sendertype","admin");
+                    session.setAttribute("restaurant",RestaurantName);
                     //登陆成功
                     //页面重定向至食堂管理员首页
                     response.sendRedirect("restaurantAdminHome.jsp");

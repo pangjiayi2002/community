@@ -20,9 +20,8 @@ public class DishDeleteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id= request.getParameter("id");
-        System.out.println(id);
+//        System.out.println(id);
         resAdminSer.deleteById(id);
         request.getRequestDispatcher("dishList.jsp").forward(request,response);
-
     }
 }

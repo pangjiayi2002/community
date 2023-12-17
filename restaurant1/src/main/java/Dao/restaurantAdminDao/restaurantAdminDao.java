@@ -1,9 +1,6 @@
 package Dao.restaurantAdminDao;
 
-import Pojo.Dish;
-import Pojo.Evaluate;
-import Pojo.RestaurantInfo;
-import Pojo.restaurantAdmin;
+import Pojo.*;
 
 import java.sql.Connection;
 import java.util.List;
@@ -39,8 +36,15 @@ public interface restaurantAdminDao {
 
     //获取评论信息
     Evaluate getEvaluateById(Connection connection, String id) throws Exception;
-    List<Evaluate> getAllEvaluate(Connection connection)throws Exception;
+    //获取该食堂所有评论
+    List<Evaluate> getAllEvaluate(Connection connection,String restaurantName)throws Exception;
     //获取未读评论
-    int notRead(Connection connection)throws Exception;
+    int notRead(Connection connection,String restaurantName)throws Exception;
+    //已读评论将isread从1修改为0
+    int modifyIsRead(Connection connection, String id) throws Exception;
+    //获取evaluateID=id的所有回复的评论
+    List<Reply> getReply(Connection connection, String id)throws Exception;
+    //回复评论
+    int addReply(Connection connection,Evaluate evaluate) throws Exception;
 
 }

@@ -1,9 +1,6 @@
 package service.restaurantAdmin;
 
-import Pojo.Dish;
-import Pojo.Evaluate;
-import Pojo.RestaurantInfo;
-import Pojo.restaurantAdmin;
+import Pojo.*;
 
 import java.sql.Connection;
 import java.util.List;
@@ -34,8 +31,14 @@ public interface restaurantAdminService {
 
     public Evaluate getEvaluateById(String id);
     //获取菜品信息
-    List<Evaluate> getAllEvaluate()throws Exception;
+    List<Evaluate> getAllEvaluate(String restaurantName)throws Exception;
     //未读的评论条数
-    public int notRead();
+    public int notRead(String restaurantName);
+    //已读评论将isread从1修改为0
+    public boolean modifyIsRead(String id) throws Exception;
+    //获取evaluateID=id的所有回复的评论
+    List<Reply> getReply(String id)throws Exception;
+    //回复评论
+    public boolean addReply(Evaluate evaluate);
 
 }

@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>查询食堂信息未找到</title>
+    <title>错误界面</title>
 </head>
 <body>
-<h1>未找到该食堂的相关信息!</h1>
+<h1>${requestScope.message}</h1>
 </body>
 </html>
