@@ -28,6 +28,16 @@
 </div>
 <div id="comment" style="">
     <h2>评价：</h2>
+    <button id="button1" onclick="addOn()">发表评价</button><br>
+    <div id="divdiv">
+        <button id="button3" onclick="addClose()">X</button>
+        <br><br>
+        <label id="divlab1">评价标题:</label>
+        <input type="text" id="divinput"><br>
+        <label id="divlab2">评价内容:</label><br>
+        <textarea id="divtex"></textarea><br><br>
+        <button id="button2" onclick="addYse()">确认发表</button>
+    </div>
     <div class="centerdiv" onclick="">
         <label class="centerdivlab1">${e.sender}:</label>
         <label class="centerdivlab2">${e.title}</label><br><br>

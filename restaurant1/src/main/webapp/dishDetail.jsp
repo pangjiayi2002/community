@@ -36,6 +36,14 @@
 </div>
 <div id="comment" style="">
     <h2>评价：</h2>
+    <br>
+    <button id="button1">发表评价</button><br>
+    <div id="divdiv">
+        <label id="divlab1">评价标题</label>
+        <input type="text" id="divinput"><br><br>
+        <label id="divlab2">评价内容：</label>
+        <textarea id="divtex"></textarea>
+    </div>
     <c:forEach var="e" items="${requestScope.es}" varStatus="status">
         <div class="centerdiv" onclick="searchOnclick(${e.id})">
             <label class="centerdivlab1">${e.sender}:</label>
