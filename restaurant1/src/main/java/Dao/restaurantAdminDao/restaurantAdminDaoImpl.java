@@ -258,7 +258,8 @@ public class restaurantAdminDaoImpl implements restaurantAdminDao{
                 String food=rs.getString("food");
                 String receiver=rs.getString("receiver");
                 int isread=rs.getInt("isread");
-                Evaluate evaluate=new Evaluate(id,title,content,sender,sendertype,restaurant,food,receiver,isread);
+                int evaluateId=rs.getInt("evaluateID");
+                Evaluate evaluate=new Evaluate(id,title,content,sender,sendertype,restaurant,food,receiver,isread,evaluateId);
                 List.add(evaluate);
             }
             BaseDao.closeResource(null,pstm,rs);

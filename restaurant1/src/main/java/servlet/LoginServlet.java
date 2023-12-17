@@ -89,6 +89,7 @@ public class LoginServlet extends HttpServlet {
         else{
             //师生端
             User user=userService.login(userCode,userPassword);
+            session.setAttribute("userName",user.getUsername());
             session.setAttribute("userRole","user");
             if(null!=user){
                 //食堂列表存在context中

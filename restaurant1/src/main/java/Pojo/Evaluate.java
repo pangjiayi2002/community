@@ -10,12 +10,13 @@ public class Evaluate implements java.io.Serializable{
     String food;
     String receiver;
     int isread;
+    int evaluateID;
 
     public Evaluate() {
     }
 
 
-    public Evaluate(int id, String title, String content, String sender, String sendertype, String restaurant, String food, String receiver, int isread) {
+    public Evaluate(int id, String title, String content, String sender, String sendertype, String restaurant, String food, String receiver, int isread,int evaluateID) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -25,6 +26,7 @@ public class Evaluate implements java.io.Serializable{
         this.food = food;
         this.receiver = receiver;
         this.isread = isread;
+        this.evaluateID=evaluateID;
     }
 
     public int getId() {
@@ -97,5 +99,11 @@ public class Evaluate implements java.io.Serializable{
 
     public void setIsread(int isread) {
         this.isread = isread;
+    }
+    public int getEvaluateID(){
+        return evaluateID;
+    }
+    public void setEvaluateID(int evaluateID){
+        this.evaluateID=evaluateID;
     }
 }

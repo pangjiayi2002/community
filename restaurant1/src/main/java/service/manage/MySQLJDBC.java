@@ -143,7 +143,8 @@ public class MySQLJDBC {
             String food=resultSet.getString("food");
             String receiver=resultSet.getString("receiver");
             int isread=resultSet.getInt("isread");
-            Evaluate e=new Evaluate(id,title,content,sender,sendertype,restaurant,food,receiver,isread);
+            int evaluateId=resultSet.getInt("evaluateID");
+            Evaluate e=new Evaluate(id,title,content,sender,sendertype,restaurant,food,receiver,isread,evaluateId);
             es.add(e);
         }
         resultSet.close();
@@ -193,7 +194,8 @@ public class MySQLJDBC {
             String food=resultSet.getString("food");
             String receiver=resultSet.getString("receiver");
             int isread=resultSet.getInt("isread");
-            Evaluate e=new Evaluate(id,title,content,sender,sendertype,restaurant,food,receiver,isread);
+            int evaluateId=resultSet.getInt("evaluateID");
+            Evaluate e=new Evaluate(id,title,content,sender,sendertype,restaurant,food,receiver,isread,evaluateId);
             es.add(e);
         }
         resultSet.close();
@@ -220,7 +222,8 @@ public class MySQLJDBC {
             String food=resultSet.getString("food");
             String receiver=resultSet.getString("receiver");
             int isread=resultSet.getInt("isread");
-            Evaluate ee=new Evaluate(id,title,content,sender,sendertype,restaurant,food,receiver,isread);
+            int evaluateId=resultSet.getInt("evaluateID");
+            Evaluate ee=new Evaluate(id,title,content,sender,sendertype,restaurant,food,receiver,isread,evaluateId);
             e=ee;
         }
         resultSet.close();
