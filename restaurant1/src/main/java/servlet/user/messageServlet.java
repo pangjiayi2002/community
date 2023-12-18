@@ -16,8 +16,9 @@ public class messageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int messageId=Integer.parseInt(request.getParameter("messageId"));
         Evaluate evaluate=evaluateService.getEvaluateDetail(messageId);
-        ServletContext context= request.getServletContext();
-        context.setAttribute("evaluate",evaluate);
+        HttpSession session= request.getSession(true);
+        //ServletContext context= request.getServletContext();
+        session.setAttribute("evaluate",evaluate);
         request.getRequestDispatcher("messageDetail.jsp").forward(request,response);
         //要将isread改成1
         boolean flag= evaluateService.setIsread(messageId);

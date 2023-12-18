@@ -11,10 +11,10 @@
     <title>回复信息详情</title>
 </head>
 <body>
-<p>回复者 :${applicationScope.evaluate.sender}</p>
-<p>食堂   :${applicationScope.evaluate.restaurant}</p>
-<p>菜品   :${applicationScope.evaluate.food}</p>
-<p>回复标题:${applicationScope.evaluate.title}</p>
-<p>回复内容:${applicationScope.evaluate.content}</p>
+<p>回复者 :${sessionScope.evaluate.sender}</p>
+<p>食堂   :${sessionScope.evaluate.restaurant}</p>
+<p>菜品   :${sessionScope.evaluate.food}</p>
+<p>回复标题:${sessionScope.evaluate.title}</p>
+<p>回复内容:${sessionScope.evaluate.content}</p>
 </body>
 </html>

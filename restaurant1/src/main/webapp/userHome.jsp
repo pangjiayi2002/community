@@ -37,7 +37,7 @@
     <a href="./unreadMessageServlet?userName=${sessionScope.userName}">
         <img src="images/xinxiang.jpg" alt="none"  height="10%">
     </a>
-    <!--<span class="unread-count" >${applicationScope.unreadCount}</span>-->
+    <span class="unread-count" ><strong>${sessionScope.unreadCount}</strong></span>
 </div>
 <div >
     <img src="images/logo.jpg" alt="none" width="90%">
@@ -52,7 +52,7 @@
         <div  class="my_fav_con">
             <div>
                 <ul  class="my_fav_list">
-                    <c:forEach var="restaurant" items="${applicationScope.RestaurantList}">
+                    <c:forEach var="restaurant" items="${sessionScope.RestaurantList}">
                         <li class="my_fav_list_li" id="">
                             <a  class="my_fav_list_a" href="./restaurantSearchServlet?restaurantName=${restaurant.name}" target="_blank">
                                 ${restaurant.name}
@@ -77,7 +77,7 @@
             <p>菜系：</p>
             <select name="foodtype">
                 <option value="全部">全部</option>
-                <c:forEach var="foodtype" items="${applicationScope.foodTypeList}">
+                <c:forEach var="foodtype" items="${sessionScope.foodTypeList}">
                     <option value="${foodtype}">${foodtype}</option>
                 </c:forEach>
             </select>
@@ -91,7 +91,7 @@
             <p>食堂</p>
             <select name="restaurant">
                 <option value="全部">全部</option>
-                <c:forEach var="restaurant" items="${applicationScope.RestaurantList}">
+                <c:forEach var="restaurant" items="${sessionScope.RestaurantList}">
                     <option value="${restaurant.name}">${restaurant.name}</option>
                 </c:forEach>
             </select>

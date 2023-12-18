@@ -8,6 +8,8 @@ import service.User.UserService;
 import service.User.UserServiceImpl;
 import service.dish.DishService;
 import service.dish.DishServiceImpl;
+import service.evaluate.EvaluateService;
+import service.evaluate.EvaluateServiceImpl;
 import service.manage.MySQLJDBC;
 import service.restaurant.RestaurantService;
 import service.restaurant.RestaurantServiceImpl;
@@ -25,6 +27,7 @@ public class LoginServlet extends HttpServlet {
     UserService userService=new UserServiceImpl();
     RestaurantService restaurantService=new RestaurantServiceImpl();
     DishService dishService=new DishServiceImpl();
+    EvaluateService evaluateService=new EvaluateServiceImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -96,11 +99,15 @@ public class LoginServlet extends HttpServlet {
             if(null!=user){
                 //食堂列表存在context中
                 List<RestaurantInfo> RestaurantList=restaurantService.getRestaurantList();
-                ServletContext context=getServletContext();
-                context.setAttribute("RestaurantList",RestaurantList);
+                //ServletContext context=getServletContext();
+                session.setAttribute("RestaurantList",RestaurantList);
                 //菜系列表存入
                 List<String> foodTypeList=dishService.getFoodTypeList();
-                context.setAttribute("foodTypeList",foodTypeList);
+                session.setAttribute("foodTypeList",foodTypeList);
+                //未读消息数量
+                int unreadCount;
+                unreadCount=evaluateService.getUnReadMessageList(userCode).size();
+                session.setAttribute("unreadCount",unreadCount);
                 //登陆成功
                 //页面重定向
                 response.sendRedirect("userHome.jsp");

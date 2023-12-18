@@ -20,25 +20,25 @@ public class unreadMessageServlet extends HttpServlet {
         //未读列表
         ArrayList<Evaluate> unreadMessageList= (ArrayList<Evaluate>) evaluateService.getUnReadMessageList(username);
         //session.setAttribute("unreadMessageList",unreadMessageList);
-        ServletContext context= request.getServletContext();
-        context.setAttribute("unreadMessageList",unreadMessageList);
+        //ServletContext context= request.getServletContext();
+        session.setAttribute("unreadMessageList",unreadMessageList);
         System.out.println(unreadMessageList.size());
         if(unreadMessageList.size()==0){
             //无未读消息
-            context.setAttribute("listMessage1","无未读消息");
+            session.setAttribute("listMessage1","无未读消息");
         }else{
-            context.setAttribute("unreadCount",unreadMessageList.size());
+            session.setAttribute("unreadCount",unreadMessageList.size());
         }
 
         //已读列表
         ArrayList<Evaluate> readMessageList= (ArrayList<Evaluate>) evaluateService.getReadMessageList(username);
-        context.setAttribute("readMessageList",readMessageList);
+        session.setAttribute("readMessageList",readMessageList);
+        /*if(readMessageList.size()==0){
+            session.setAttribute("listMessage2","无已读消息");
+        }*/
         request.getRequestDispatcher("messageList.jsp").forward(request,response);
         System.out.println(readMessageList.size());
         System.out.println(readMessageList.get(0).getSender());
-        if(readMessageList.size()==0){
-            context.setAttribute("listMessage2","无已读消息");
-        }
     }
 
     @Override

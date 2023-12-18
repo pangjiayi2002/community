@@ -21,9 +21,9 @@
         <div  class="my_fav_con">
             <div>
                 <ul  class="my_fav_list">
-                    <p>${applicationScope.listMessage1}</p>
-                    <c:if test="${applicationScope.unreadMessageList.size()!=0}" var="result" scope="session">
-                        <c:forEach var="message" items="${applicationScope.unreadMessageList}">
+                    <p>${sessionScope.listMessage1}</p>
+                    <c:if test="${sessionScope.unreadMessageList.size()!=0}" var="result" scope="session">
+                        <c:forEach var="message" items="${sessionScope.unreadMessageList}">
                             <li class="my_fav_list_li" id="">
                                 <a  class="my_fav_list_a" href="./messageServlet?messageId=${message.id}" target="_blank">
                                     来自${message.getSender()}的回复
@@ -47,8 +47,8 @@
         <div  class="my_fav_con">
             <div>
                 <ul  class="my_fav_list">
-                    <p>${applicationScope.listMessage2}</p>
-                    <c:forEach var="message" items="${applicationScope.readMessageList}">
+                    <p>${sessionScope.listMessage2}</p>
+                    <c:forEach var="message" items="${sessionScope.readMessageList}">
                         <li class="my_fav_list_li" id="">
                             <a  class="my_fav_list_a" href="./messageServlet?messageId=${message.id}" target="_blank">
                                 来自${message.sender}的回复
