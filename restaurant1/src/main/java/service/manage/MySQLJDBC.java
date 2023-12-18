@@ -229,5 +229,33 @@ public class MySQLJDBC {
         return e;
     }
 
+    //用户发表评价
+    public static int insertUserEvaluate(String title,String content,String sender,String restaurant,String food,String receiver) throws SQLException {
+        Connection connection=MySQLConnection.getConnection();
+        Statement statement=connection.createStatement();
+        String sql="insert into `evaluate` (title,content,sender,sendertype,restaurant,food,receiver,isread,evaluateID) values('"+title+"','"+content+"','"+sender+"','user','"+restaurant+"','"+food+"','"+receiver+"',0,null);";
+        int a=statement.executeUpdate(sql);
+        statement.close();
+        connection.close();
+        if(a!=0)
+            return 1;//添加用户成功
+        return 0;
+    }
+    //根据餐厅名字找出管理员
+    public static String searchResM(String res) throws SQLException {
+        String resM= "";
+        Connection connection=MySQLConnection.getConnection();
+        Statement statement=connection.createStatement();
+        ResultSet resultSet;
+        String sql="select username from `restaurantadmin` where resturant='"+res+"';";
+        resultSet=statement.executeQuery(sql);
+        while (resultSet.next()){
+            resM=resultSet.getString("username");
+        }
+        resultSet.close();
+        statement.close();
+        connection.close();
+        return resM;
+    }
 
 }

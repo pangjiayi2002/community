@@ -17,10 +17,10 @@ function addClose(){
     var div =document.getElementById("divdiv");
     div.style.display="none";
 }
-function addYse(){
+function addYse(restaurant,food){
     var title=document.getElementById("divinput").value;
     var content=document.getElementById("divtex").value;
-    var params ="id=" + encodeURIComponent(id)+"&username="+encodeURIComponent(username)+"&password="+encodeURIComponent(password)+"&restaurant="+encodeURIComponent(restaurant);
+    var params ="title=" + encodeURIComponent(title)+"&content="+encodeURIComponent(content)+"&restaurant="+encodeURIComponent(restaurant)+"&food="+encodeURIComponent(food);
     createXMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState == XMLHttpRequest.DONE) {
