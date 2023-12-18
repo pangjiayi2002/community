@@ -37,13 +37,13 @@ public class DishAddServlet extends HttpServlet {
                 request.getRequestDispatcher("dishList.jsp").forward(request, response);
             } catch (NumberFormatException e) {
                 // 处理价格无效的情况
-                request.setAttribute("errorMessage", "价格无效，请输入有效的价格。");
-                request.getRequestDispatcher("").forward(request, response);
+                request.setAttribute("message", "价格无效，请输入有效的价格。");
+                request.getRequestDispatcher("error.jsp").forward(request, response);
             }
         } else {
             // 菜品信息不完整，显示错误消息
-            request.setAttribute("errorMessage", "添加的菜品信息不能为空，请补全信息。");
-            request.getRequestDispatcher("").forward(request, response);
+            request.setAttribute("message", "添加的菜品信息不能为空，请补全信息。");
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
     }
 
