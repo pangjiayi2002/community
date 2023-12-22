@@ -44,7 +44,7 @@
         <input type="text" id="divinput"><br>
         <label id="divlab2">评价内容:</label><br>
         <textarea id="divtex"></textarea><br><br>
-        <button id="button2" onclick="addYse(${sessionScope.dish.restaurantName},${sessionScope.dish.name})">确认发表</button>
+        <button id="button2" onclick="addYse('${sessionScope.dish.restaurantName}','${sessionScope.dish.name}')">确认发表</button>
     </div>
     <c:forEach var="e" items="${requestScope.es}" varStatus="status">
         <div class="centerdiv" onclick="searchOnclick(${e.id})">

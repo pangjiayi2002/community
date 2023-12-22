@@ -20,7 +20,7 @@ public class AddEvaluate extends HttpServlet {
         HttpSession session=request.getSession();
         String title=request.getParameter("title");
         String content=request.getParameter("content");
-        String sender= (String) session.getAttribute("username");
+        String sender= (String) session.getAttribute("userName");
         String restaurant=request.getParameter("restaurant");
         String food=request.getParameter("food");
         String receiver= "";
@@ -31,5 +31,6 @@ public class AddEvaluate extends HttpServlet {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("插入评价是否成功"+a);
     }
 }
