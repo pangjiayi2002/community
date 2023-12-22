@@ -28,7 +28,7 @@ public class ReplyServlet extends HttpServlet {
         String restaurant= (String) session.getAttribute("restaurant");
         String food= (String) session.getAttribute("food");
         String receiver= (String) session.getAttribute("receiver");
-        int isread=1;
+        int isread=0;
         String evaluateIDStr = (String) session.getAttribute("id");
         int evaluateID = Integer.parseInt(evaluateIDStr);
         Evaluate replyEvaluate=new Evaluate(title,content,sender,sendertype,restaurant,food,receiver,isread,evaluateID);
