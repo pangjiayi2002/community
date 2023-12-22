@@ -200,6 +200,7 @@
 }
 .center2divclab1{
     width: 50px;
+    height: 30px;
     overflow:hidden;
     display: inline-block;
     font-size: 18px;
@@ -207,6 +208,7 @@
 }
 .center2divclab2{
     width: 100px;
+    height: 30px;
     overflow:hidden;
     font-size: 18px;
     margin-left: 50px;
@@ -223,6 +225,7 @@
 }
 .center2divclab4{
     width: 100px;
+    height: 30px;
     overflow:hidden;
     font-size: 18px;
     margin-left: 65px;
@@ -230,6 +233,7 @@
 }
 .center2divclab5{
     width: 100px;
+    height: 30px;
     overflow:hidden;
     font-size: 18px;
     margin-left: 35px;
@@ -237,6 +241,7 @@
 }
 .center2divclab6{
     width: 70px;
+    height: 30px;
     overflow:hidden;
     font-size: 18px;
     margin-left: 60px;
@@ -316,7 +321,7 @@
     font-size: 18px;
     margin-left: 10px;
     width: 50px;
-    height: 40px;
+    height: 30px;
     overflow:hidden;
     display: inline-block;
 }
@@ -324,7 +329,7 @@
     font-size: 18px;
     margin-left: 27px;
     width: 60px;
-    height: 40px;
+    height: 30px;
     overflow:hidden;
     display: inline-block;
 }
@@ -332,7 +337,7 @@
     font-size: 18px;
     margin-left: 30px;
     width: 100px;
-    height: 40px;
+    height: 30px;
     overflow:hidden;
     display: inline-block;
 }
@@ -340,7 +345,7 @@
     font-size: 18px;
     margin-left: 40px;
     width: 100px;
-    height: 40px;
+    height: 30px;
     overflow:hidden;
     display: inline-block;
 }
@@ -348,7 +353,7 @@
     font-size: 18px;
     margin-left: 30px;
     width: 100px;
-    height: 40px;
+    height: 30px;
     overflow:hidden;
     display: inline-block;
 }
@@ -356,7 +361,7 @@
     font-size: 18px;
     margin-left: 47px;
     width: 80px;
-    height: 40px;
+    height: 30px;
     overflow:hidden;
     display: inline-block;
 }
@@ -364,7 +369,7 @@
     font-size: 18px;
     margin-left: 40px;
     width: 100px;
-    height: 40px;
+    height: 30px;
     overflow:hidden;
     display: inline-block;
 }
