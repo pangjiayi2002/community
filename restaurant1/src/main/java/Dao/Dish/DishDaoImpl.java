@@ -2,10 +2,7 @@ package Dao.Dish;
 
 import Dao.BaseDao;
 import Pojo.Dish;
-import Pojo.Evaluate;
-import Pojo.RestaurantInfo;
 
-import javax.print.attribute.standard.JobKOctets;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

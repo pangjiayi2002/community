@@ -26,13 +26,13 @@ public class DishAddServlet extends HttpServlet {
         String cover = "dish/" + request.getParameter("cover");
         String restaurantName = request.getParameter("restaurantName");
         // 检查菜品信息是否完整
-        if (name != null  && foodtype != null && priceStr != null && cover != null && restaurantName != null ) {
+        if (name != null && !name.isEmpty()  && foodtype != null && !foodtype.isEmpty() && priceStr != null && !priceStr.isEmpty() && cover != null && !cover.isEmpty() && restaurantName != null && !restaurantName.isEmpty() ) {
             try {
                 // 解析价格
                 Float price = Float.parseFloat(priceStr);
                 // 创建菜品对象
                 Dish dish = new Dish(name, foodtype, price, cover, restaurantName);
-                System.out.println(dish.toString());
+//                System.out.println(dish.toString());
                 resAdminSer.addDish(dish);
                 request.getRequestDispatcher("dishList.jsp").forward(request, response);
             } catch (NumberFormatException e) {
@@ -46,6 +46,4 @@ public class DishAddServlet extends HttpServlet {
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
     }
-
-
 }
