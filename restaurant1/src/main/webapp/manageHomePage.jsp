@@ -196,7 +196,7 @@
     <div class="center3_3div">
         <button class="center3_3divbutton1" onclick="deletediv3Close(<%=k%>)">X</button><br>
         <label class="center3_3divlab1">删除评价信息</label><br><br><br>
-        <label class="center3_3divlab2">此操作不可逆，是否确认删除该食堂？</label><br><br><br>
+        <label class="center3_3divlab2">此操作不可逆，是否确认删除该评价？</label><br><br><br>
         <button class="center3_3divbutton2" onclick="deletediv3Yes(${e.id},<%=k%>)">确认删除</button>
     </div>
     <%k++;%>
