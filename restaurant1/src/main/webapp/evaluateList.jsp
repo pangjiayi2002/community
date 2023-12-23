@@ -52,7 +52,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <h1 class="page-title">菜品信息维护</h1>
+            <h1 class="page-title">评论信息维护</h1>
         </div>
         <div class="col-md-4 text-right">
             <a class="btn btn-primary" id="fanhui" href="restaurantAdminHome.jsp">返回首页</a>

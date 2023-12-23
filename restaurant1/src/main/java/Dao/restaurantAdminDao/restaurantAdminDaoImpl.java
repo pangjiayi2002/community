@@ -274,7 +274,7 @@ public class restaurantAdminDaoImpl implements restaurantAdminDao{
             rs= BaseDao.execute(connection,pstm,rs,sql,params);
             while(rs.next()){
                 int isread=rs.getInt("isread");
-                if (isread==1){
+                if (isread==0){
                     count++;
                 }
             }
@@ -288,7 +288,7 @@ public class restaurantAdminDaoImpl implements restaurantAdminDao{
         int flag = 0;
         PreparedStatement pstm = null;
         if (null != connection) {
-            String sql = "update restaurant.evaluate set isread=0 where id = ? ";
+            String sql = "update restaurant.evaluate set isread=1 where id = ? ";
             Object[] params = {id};
             flag = BaseDao.execute(connection, pstm, sql, params);
             BaseDao.closeResource(null, pstm, null);
